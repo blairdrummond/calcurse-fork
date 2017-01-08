@@ -1,0 +1,3212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.9" />
+<title>CALCURSE - text-based organizer</title>
+<style type="text/css">
+/* Shared CSS for AsciiDoc xhtml11 and html5 backends */
+
+/* Default font. */
+body {
+  font-family: Georgia,serif;
+}
+
+/* Title font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+#toctitle,
+#author, #revnumber, #revdate, #revremark,
+#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+h5 {
+  font-size: 1.0em;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+.monospaced, code, pre {
+  font-family: "Courier New", Courier, monospace;
+  font-size: inherit;
+  color: navy;
+  padding: 0;
+  margin: 0;
+}
+pre {
+  white-space: pre-wrap;
+}
+
+#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+#email {
+}
+#revnumber, #revdate, #revremark {
+}
+
+#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #888;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; vertical-align: text-bottom; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  #footer-badges { display: none; }
+}
+
+#toc {
+  margin-bottom: 2.5em;
+}
+
+#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel0, div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+span.aqua { color: aqua; }
+span.black { color: black; }
+span.blue { color: blue; }
+span.fuchsia { color: fuchsia; }
+span.gray { color: gray; }
+span.green { color: green; }
+span.lime { color: lime; }
+span.maroon { color: maroon; }
+span.navy { color: navy; }
+span.olive { color: olive; }
+span.purple { color: purple; }
+span.red { color: red; }
+span.silver { color: silver; }
+span.teal { color: teal; }
+span.white { color: white; }
+span.yellow { color: yellow; }
+
+span.aqua-background { background: aqua; }
+span.black-background { background: black; }
+span.blue-background { background: blue; }
+span.fuchsia-background { background: fuchsia; }
+span.gray-background { background: gray; }
+span.green-background { background: green; }
+span.lime-background { background: lime; }
+span.maroon-background { background: maroon; }
+span.navy-background { background: navy; }
+span.olive-background { background: olive; }
+span.purple-background { background: purple; }
+span.red-background { background: red; }
+span.silver-background { background: silver; }
+span.teal-background { background: teal; }
+span.white-background { background: white; }
+span.yellow-background { background: yellow; }
+
+span.big { font-size: 2em; }
+span.small { font-size: 0.6em; }
+
+span.underline { text-decoration: underline; }
+span.overline { text-decoration: overline; }
+span.line-through { text-decoration: line-through; }
+
+div.unbreakable { page-break-inside: avoid; }
+
+
+/*
+ * xhtml11 specific
+ *
+ * */
+
+div.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+/*
+ * html5 specific
+ *
+ * */
+
+table.tableblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+thead, p.tableblock.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+p.tableblock {
+  margin-top: 0;
+}
+table.tableblock {
+  border-width: 3px;
+  border-spacing: 0px;
+  border-style: solid;
+  border-color: #527bbd;
+  border-collapse: collapse;
+}
+th.tableblock, td.tableblock {
+  border-width: 1px;
+  padding: 4px;
+  border-style: solid;
+  border-color: #527bbd;
+}
+
+table.tableblock.frame-topbot {
+  border-left-style: hidden;
+  border-right-style: hidden;
+}
+table.tableblock.frame-sides {
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+}
+table.tableblock.frame-none {
+  border-style: hidden;
+}
+
+th.tableblock.halign-left, td.tableblock.halign-left {
+  text-align: left;
+}
+th.tableblock.halign-center, td.tableblock.halign-center {
+  text-align: center;
+}
+th.tableblock.halign-right, td.tableblock.halign-right {
+  text-align: right;
+}
+
+th.tableblock.valign-top, td.tableblock.valign-top {
+  vertical-align: top;
+}
+th.tableblock.valign-middle, td.tableblock.valign-middle {
+  vertical-align: middle;
+}
+th.tableblock.valign-bottom, td.tableblock.valign-bottom {
+  vertical-align: bottom;
+}
+
+
+/*
+ * manpage specific
+ *
+ * */
+
+body.manpage h1 {
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  border-top: 2px solid silver;
+  border-bottom: 2px solid silver;
+}
+body.manpage h2 {
+  border-style: none;
+}
+body.manpage div.sectionbody {
+  margin-left: 3em;
+}
+
+@media print {
+  body.manpage div#toc { display: none; }
+}
+
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([1-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  if (!toc) {
+    return;
+  }
+
+  // Delete existing TOC entries in case we're reloading the TOC.
+  var tocEntriesToRemove = [];
+  var i;
+  for (i = 0; i < toc.childNodes.length; i++) {
+    var entry = toc.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div'
+     && entry.getAttribute("class")
+     && entry.getAttribute("class").match(/^toclevel/))
+      tocEntriesToRemove.push(entry);
+  }
+  for (i = 0; i < tocEntriesToRemove.length; i++) {
+    toc.removeChild(tocEntriesToRemove[i]);
+  }
+
+  // Rebuild TOC entries.
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  // Delete existing footnote entries in case we're reloading the footnodes.
+  var i;
+  var noteholder = document.getElementById("footnotes");
+  if (!noteholder) {
+    return;
+  }
+  var entriesToRemove = [];
+  for (i = 0; i < noteholder.childNodes.length; i++) {
+    var entry = noteholder.childNodes[i];
+    if (entry.nodeName.toLowerCase() == 'div' && entry.getAttribute("class") == "footnote")
+      entriesToRemove.push(entry);
+  }
+  for (i = 0; i < entriesToRemove.length; i++) {
+    noteholder.removeChild(entriesToRemove[i]);
+  }
+
+  // Rebuild footnote entries.
+  var cont = document.getElementById("content");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      var note = spans[i].getAttribute("data-note");
+      if (!note) {
+        // Use [\s\S] in place of . so multi-line matches work.
+        // Because JavaScript has no s (dotall) regex flag.
+        note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+        spans[i].innerHTML =
+          "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+        spans[i].setAttribute("data-note", note);
+      }
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+},
+
+install: function(toclevels) {
+  var timerId;
+
+  function reinstall() {
+    asciidoc.footnotes();
+    if (toclevels) {
+      asciidoc.toc(toclevels);
+    }
+  }
+
+  function reinstallAndRemoveTimer() {
+    clearInterval(timerId);
+    reinstall();
+  }
+
+  timerId = setInterval(reinstall, 500);
+  if (document.addEventListener)
+    document.addEventListener("DOMContentLoaded", reinstallAndRemoveTimer, false);
+  else
+    window.onload = reinstallAndRemoveTimer;
+}
+
+}
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article">
+<div id="header">
+<h1>CALCURSE - text-based organizer</h1>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_abstract">1. Abstract</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This manual describes <code>calcurse</code> functionalities, and how to use them. The
+installation from source is first described, together with the available
+command line arguments. The user interface is then presented, with all of the
+customizable options that change <code>calcurse</code> behavior. Last, bug reporting
+procedure is explained, as well as the way one can contribute to <code>calcurse</code>
+development.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_introduction">2. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph"><p><code>calcurse</code> is a text-based calendar and scheduling application. It helps
+keeping track of events, appointments and everyday tasks.  A configurable
+notification system reminds user of upcoming deadlines, and the curses based
+interface can be customized to suit user needs.  All of the commands are
+documented within an online help system.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_overview">3. Overview</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_creation_history">3.1. Creation history</h3>
+<div class="paragraph"><p>Frederic started thinking about this project when he was finishing his Ph.D. in
+Astrophysics as it started to be a little hard to organize himself and he
+really needed a good tool for managing his appointments and todo list.
+Unfortunately, he finished his Ph.D. before finishing <code>calcurse</code> but he
+continued working on it, hoping it would be helpful to other people.</p></div>
+<div class="paragraph"><p>In mid-2010, Lukas took over development of <code>calcurse</code> and is now the main
+contributor and reviewer of patches.</p></div>
+<div class="paragraph"><p>But why <code>calcurse</code> anyway?  Well, it is simply the concatenation of *cal*endar
+and *curse*s, the name of the library used to build the user interface.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_important_features">3.2. Important features</h3>
+<div class="paragraph"><p><code>Calcurse</code> is multi-platform and intended to be lightweight, fast and reliable.
+It is to be used inside a console or terminal, locally or on a distant machine
+within an ssh (or similar) connection.</p></div>
+<div class="paragraph"><p><code>Calcurse</code> can be run in two different modes : interactive or non-interactive
+mode. The first mode allows oneself to view its own personal organizer almost
+everywhere, thanks to the text-based interface.  The second mode permits to
+easily build reminders just by adding <code>calcurse</code> with appropriate command line
+arguments inside a cron tab or within a shell init script.</p></div>
+<div class="paragraph"><p>Moreover, <code>calcurse</code> was created with the end-user in mind, and tends to be as
+friendly as possible. This means a complete on-line help system, together with
+having all of the possible actions displayed at any time inside a status bar.
+The user interface is configurable, and one can choose between several color
+and layout combinations.  Key bindings are also configurable, to fit everyone&#8217;s
+needs.  Last, a configurable notification system reminds user of upcoming
+appointments. The reminders are sent even if the user&#8217;s interface is not
+running, as calcurse is able to run in background.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_installation">4. Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_requirements">4.1. Requirements</h3>
+<div class="sect3">
+<h4 id="_ncurses_library">4.1.1. ncurses library</h4>
+<div class="paragraph"><p><code>Calcurse</code> requires only a <code>C</code> compiler, such as <code>cc</code> or <code>gcc</code>, and the
+<code>ncurses</code> library.  It would be very surprising not to have a valid <code>ncurses</code>
+library already installed on your computer, but if not, you can find it at the
+following url: <a href="http://ftp.gnu.org/pub/gnu/ncurses/">http://ftp.gnu.org/pub/gnu/ncurses/</a></p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">It is also possible to link <code>calcurse</code> against the <code>ncursesw</code> library
+      (ncurses with support for unicode).</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="install_requirements_gettext">4.1.2. gettext library</h4>
+<div class="paragraph"><p><code>calcurse</code> supports internationalization (<strong>i18n</strong> hereafter) through the
+<code>gettext</code> utilities. This means <code>calcurse</code> can produce multi-lingual messages
+if compiled with native language support (i.e. <strong>NLS</strong>).</p></div>
+<div class="paragraph"><p>However, <strong>NLS</strong> is optionnal and if you do not want to have support for
+multi-lingual messages, you can disable this feature.  This is done by giving
+the <code>--disable-nls</code> option to <code>configure</code> (see section
+<a href="#install_process">Install process</a>).  To check if the <code>gettext</code> utilities are
+installed on your system, you can search for the <code>libintl.h</code> header file for
+instance:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ locate libintl.h</code></pre>
+</div></div>
+<div class="paragraph"><p>If this header file is not found, then you can obtain the <code>gettext</code> sources at
+the following url : <a href="http://ftp.gnu.org/pub/gnu/gettext/">http://ftp.gnu.org/pub/gnu/gettext/</a></p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">Even if <code>libintl.h</code> is found on your system, it can be wise to specify
+      its location during the <a href="#install_process">install process</a>, by using the
+      <code>--with-libintl-prefix</code> option with <code>configure</code>. Indeed, the <code>configure</code>
+      could fail to locate this library if installed in an uncommon place.</td>
+</tr></table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="install_process">4.2. Install process</h3>
+<div class="paragraph"><p>First you need to gunzip and untar the source archive:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ tar zxvf calcurse-4.2.1.tar.gz</code></pre>
+</div></div>
+<div class="paragraph"><p>Once you meet the requirements and have extracted the archive, the install
+process is quite simple, and follows the standard three steps process:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ ./configure
+$ make
+$ make install    # (may require root privilege)</code></pre>
+</div></div>
+<div class="paragraph"><p>Use <code>./configure --help</code> to obtain a list of possible options.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_calcurse_basics">5. calcurse basics</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_invocation">5.1. Invocation</h3>
+<div class="sect3">
+<h4 id="basics_invocation_commandline">5.1.1. Command line arguments</h4>
+<div class="paragraph"><p><code>calcurse</code> takes the following options from the command line (both short and
+long options are supported):</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>-a, --appointment</code>
+</dt>
+<dd>
+<p>
+  Print the appointments and events for the current day and exit. Equivalent to
+  <code>-Q --filter-type cal</code>. The calendar from which to read the  appointments can
+  be specified using the <code>-c</code> flag.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-c &lt;file&gt;, --calendar &lt;file&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify the calendar file to use. The default calendar is <code>~/.calcurse/apts</code>
+  (see section <a href="#basics_files">calcurse files</a>). This option has precedence
+  over <code>-D</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-d &lt;date|num&gt;, --day &lt;date|num&gt;</code>
+</dt>
+<dd>
+<p>
+  Print the appointments for the given date  or  for  the given  number  of
+  upcoming days, depending on the argument format. Two possible formats are
+  supported:
+</p>
+<div class="openblock">
+<div class="content">
+<div class="ulist"><ul>
+<li>
+<p>
+a date (possible formats described below).
+</p>
+</li>
+<li>
+<p>
+a number <code>n</code>.
+</p>
+</li>
+</ul></div>
+</div></div>
+<div class="paragraph"><p>In the first  case,  the  appointment  list  for  the specified  date will be
+returned, while in the second case the appointment list for the <code>n</code>  upcoming
+days will be returned.  As an example, typing <code>calcurse -d  3</code>  will  display
+your  appointments  for  today, tomorrow, and the day after tomorrow.
+The first form is equivalent to <code>-Q --filter-type cal --from &lt;date&gt;</code>, the
+second form is equivalent to <code>-Q --filter-type cal --days &lt;num&gt;</code>.</p></div>
+<div class="paragraph"><p>Note: as for the <code>-a</code> flag, the calendar  from which to  read  the appointments
+can be specified using the <code>-c</code> flag.</p></div>
+</dd>
+<dt class="hdlist1">
+<code>--daemon</code>
+</dt>
+<dd>
+<p>
+  Start calcurse in background mode. Restart if the daemon was already running.
+  See <a href="#basics_daemon">Background mode</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--days &lt;num&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify the length of the range (in days) when used with <code>-Q</code>. Cannot be
+  combined with <code>--to</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-D &lt;dir&gt;, --directory &lt;dir&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify the data directory to use. If not specified, the default directory is
+  <code>~/.calcurse/</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-type &lt;type&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that do not match the type mask. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-pattern &lt;pattern&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items with a description that does not match the pattern. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-from &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that start before a given date. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-to &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that start after a given date. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-after &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that start after a given date. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-before &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that start before a given date. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-range &lt;range&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items within a given range. See <a href="#basics_filters">Filters</a> for
+  details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-from &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that end before a given date. See <a href="#basics_filters">Filters</a>
+  for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-to &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that end after a given date. See <a href="#basics_filters">Filters</a>
+  for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-after &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that end after a given date. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-before &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that end before a given date. See
+  <a href="#basics_filters">Filters</a> for details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-range &lt;range&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items within a given range. See <a href="#basics_filters">Filters</a> for
+  details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-priority &lt;priority&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items with a given priority. See <a href="#basics_filters">Filters</a> for
+  details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-completed</code>
+</dt>
+<dd>
+<p>
+  Only include completed TODO items. See <a href="#basics_filters">Filters</a> for
+  details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-uncompleted</code>
+</dt>
+<dd>
+<p>
+  Only include uncompleted TODO items. See <a href="#basics_filters">Filters</a> for
+  details.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--format-apt &lt;format&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify a format to control the output of appointments in non-interactive
+  mode. See the <a href="#basics_format_strings">Format strings</a> section for detailed
+  information on format strings.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--format-recur-apt &lt;format&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify a format to control the output of recurrent appointments in
+  non-interactive mode. See the <a href="#basics_format_strings">Format strings</a>
+  section for detailed information on format strings.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--format-event &lt;format&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify a format to control the output of events in non-interactive mode. See
+  the <a href="#basics_format_strings">Format strings</a> section for detailed information
+  on format strings.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--format-recur-event &lt;format&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify a format to control the output of recurrent events in non-interactive
+  mode. See the <a href="#basics_format_strings">Format strings</a> section for detailed
+  information on format strings.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--format-todo &lt;format&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify a format to control the output of todo items in non-interactive mode.
+  See the <a href="#basics_format_strings">Format strings</a> section for detailed
+  information on format strings.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--export-uid</code>
+</dt>
+<dd>
+<p>
+  When exporting items, add the hash of each item to the exported object as an
+  UID property.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-F</code>, <code>--filter</code>
+</dt>
+<dd>
+<p>
+  Read items from the data files and write them back. The filter interface can
+  be used to drop specific items. Be careful with this option, specifying a
+  wrong filter might result it data loss! It is highly recommended to test the
+  effect of filters with -G first. See also: <a href="#basics_filters">Filters</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--from &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify the start date of the range when used with <code>-Q</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-g, --gc</code>
+</dt>
+<dd>
+<p>
+  Run the garbage collector for note files and exit.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-G, --grep</code>
+</dt>
+<dd>
+<p>
+  Print appointments and TODO items using the calcurse data file format. The
+  filter interface can be used to further restrict the output. See also:
+  <a href="#basics_filters">Filters</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-h, --help</code>
+</dt>
+<dd>
+<p>
+  Print  a  short  help  text  describing  the  supported command-line options,
+  and exit.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-i &lt;file&gt;, --import &lt;file&gt;</code>
+</dt>
+<dd>
+<p>
+  Import the icalendar data contained in <code>file</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-l &lt;num&gt;, --limit &lt;num&gt;</code>
+</dt>
+<dd>
+<p>
+  Limit the number of results printed to <em>num</em>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--dump-imported</code>
+</dt>
+<dd>
+<p>
+  When importing items, print each newly created object to stdout. Format
+  strings can be used to specify which details are printed. See also:
+  <a href="#basics_format_strings">Format strings</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-n, --next</code>
+</dt>
+<dd>
+<p>
+  Print the next appointment within upcoming 24 hours and exit.  The indicated
+  time is the number of hours and minutes left before this appointment.
+</p>
+<div class="paragraph"><p>Note: the calendar from which to read the appointments can be specified using
+the <code>-c</code> flag.</p></div>
+</dd>
+<dt class="hdlist1">
+<code>-q</code>, <code>--quiet</code>
+</dt>
+<dd>
+<p>
+  Be quiet. Do not show system dialogs.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-Q, --query</code>
+</dt>
+<dd>
+<p>
+  Print all appointments inside a given query range, followed by all TODO
+  items. The query range defaults to the current day and can be changed by
+  using the <code>--from</code> and <code>--to</code> (or <code>--days</code>) parameters. The filter interface
+  can be used to further restrict the output. See also:
+  <a href="#basics_filters">Filters</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-r[num], --range[=num]</code>
+</dt>
+<dd>
+<p>
+  Print events and appointments for the num number of days and exit. If no num
+  is given, a range of 1 day is considered. Equivalent to <code>-Q --filter-type cal
+  --days &lt;num&gt;</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--read-only</code>
+</dt>
+<dd>
+<p>
+  Don&#8217;t save configuration nor appointments/todos.
+</p>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/warning.png" alt="Warning" />
+</td>
+<td class="content">Use this this with care! If you run an interactive calcurse instance
+in read-only mode, all changes from this session will be lost without warning!</td>
+</tr></table>
+</div>
+</dd>
+<dt class="hdlist1">
+<code>-s[date], --startday[=date]</code>
+</dt>
+<dd>
+<p>
+  Print  events  and appointments from date and exit.  If no date is given, the
+  current day is considered. Equivalent to <code>-Q --filter-type cal --from
+  &lt;date&gt;</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-S&lt;regex&gt;, --search=&lt;regex&gt;</code>
+</dt>
+<dd>
+<p>
+  When used with the <code>-a</code>, <code>-d</code>, <code>-r</code>, <code>-s</code>, or <code>-t</code> flag, print only the items
+  having a description that matches the given regular expression. Equivalent to
+  <code>-Q --filter-pattern &lt;regex&gt;</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--status</code>
+</dt>
+<dd>
+<p>
+  Display  the  status of running instances of calcurse. If calcurse is
+  running, this will tell  if  the  interactive mode  was  launched  or  if
+  calcurse is running in background.  The process pid will also be indicated.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-t[num], --todo[=num]</code>
+</dt>
+<dd>
+<p>
+  Print the <code>todo</code> list and exit. If the optional number <code>num</code> is given, then
+  only uncompleted todos having a priority equal to <code>num</code> will be returned. The
+  priority number must be between 1 (highest) and 9 (lowest). It is also
+  possible to specify <code>0</code> for the priority, in which case only completed tasks
+  will be shown. Equivalent to <code>-Q --filter-type todo</code>, combined with
+  <code>--filter-priority</code> and <code>--filter-completed</code> or <code>--filter-uncompleted</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--to &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Specify the end date of the range when used with <code>-Q</code>. Cannot be combined
+  with <code>--days</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-v, --version</code>
+</dt>
+<dd>
+<p>
+  Display <code>calcurse</code> version and exit.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>-x[format], --export[=format]</code>
+</dt>
+<dd>
+<p>
+  Export user data to specified format. Events, appointments and todos are
+  converted and echoed to stdout.  Two possible formats are available: ical and
+  pcal (see section <a href="#links_others">Links</a> below).  If the optional
+  argument <code>format</code> is not given, ical format is selected by default.
+</p>
+<div class="paragraph"><p>Note: redirect standard output to export data to a file, by issuing a command
+such as:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ calcurse --export &gt; my_data.dat</code></pre>
+</div></div>
+</dd>
+</dl></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">The <code>-N</code> option has been removed in calcurse 3.0.0. See the
+<a href="#basics_format_strings">Format strings</a> section on how to print note along
+with appointments and events.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="basics_filters">5.1.2. Filters</h4>
+<div class="paragraph"><p>Filters can be used to restrict the set of items which are loaded from the
+appointments file when using calcurse in non-interactive mode. The following
+filters are currently supported:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>--filter-hash &lt;pattern&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items with a hash starting with the specified pattern. The
+  pattern can be inverted by prepending an exclamation mark (<code>!</code>).
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-type &lt;type&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that do not match the type mask. The type mask is a
+  comma-separated list of valid type descriptions which include <code>event</code>, <code>apt</code>,
+  <code>recur-event</code>, <code>recur-apt</code> and <code>todo</code>. You can also use <code>recur</code> as a
+  shorthand for <code>recur-event,recur-apt</code> and <code>cal</code> as a shorthand for
+  <code>event,apt,recur</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-pattern &lt;pattern&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items with a description that does not match the pattern. The
+  pattern is interpreted as extended regular expression.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-from &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that start before a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-to &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that start after a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-after &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that start after a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-before &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that start before a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-start-range &lt;range&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items with a start date that falls within a given range. A range
+  consists of a start date and an end date, separated by a comma.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-from &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that end before a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-to &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Ignore any items that end after a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-after &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that end after a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-before &lt;date&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items that end before a given date.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-end-range &lt;range&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items with an end date that falls within a given range. A range
+  consists of a start date and an end date, separated by a comma.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-priority &lt;priority&gt;</code>
+</dt>
+<dd>
+<p>
+  Only include items with a given priority.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-completed</code>
+</dt>
+<dd>
+<p>
+  Only include completed TODO items.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>--filter-uncompleted</code>
+</dt>
+<dd>
+<p>
+  Only include uncompleted TODO items.
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect3">
+<h4 id="basics_format_strings">5.1.3. Format strings</h4>
+<div class="paragraph"><p>Format strings are composed of printf()-style format specifiers&#8201;&#8212;&#8201;ordinary
+characters are copied to stdout without modification. Each specifier is
+introduced by a <code>%</code> and is followed by a character which specifies the field to
+print. The set of available fields depends on the item type.</p></div>
+<div class="sect4">
+<h5 id="_format_specifiers_for_appointments">Format specifiers for appointments</h5>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>s</code>
+</dt>
+<dd>
+<p>
+  Print the start time of the appointment as UNIX time stamp
+</p>
+</dd>
+<dt class="hdlist1">
+<code>S</code>
+</dt>
+<dd>
+<p>
+  Print the start time of the appointment using the <code>hh:mm</code> format
+</p>
+</dd>
+<dt class="hdlist1">
+<code>d</code>
+</dt>
+<dd>
+<p>
+  Print the duration of the appointment in seconds
+</p>
+</dd>
+<dt class="hdlist1">
+<code>e</code>
+</dt>
+<dd>
+<p>
+  Print the end time of the appointment as UNIX time stamp
+</p>
+</dd>
+<dt class="hdlist1">
+<code>E</code>
+</dt>
+<dd>
+<p>
+  Print the end time of the appointment using the <code>hh:mm</code> format
+</p>
+</dd>
+<dt class="hdlist1">
+<code>m</code>
+</dt>
+<dd>
+<p>
+  Print the description of the item
+</p>
+</dd>
+<dt class="hdlist1">
+<code>n</code>
+</dt>
+<dd>
+<p>
+  Print the name of the note file belonging to the item
+</p>
+</dd>
+<dt class="hdlist1">
+<code>N</code>
+</dt>
+<dd>
+<p>
+  Print the note belonging to the item
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect4">
+<h5 id="_format_specifiers_for_events">Format specifiers for events</h5>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>m</code>
+</dt>
+<dd>
+<p>
+  Print the description of the item
+</p>
+</dd>
+<dt class="hdlist1">
+<code>n</code>
+</dt>
+<dd>
+<p>
+  Print the name of the note file belonging to the item
+</p>
+</dd>
+<dt class="hdlist1">
+<code>N</code>
+</dt>
+<dd>
+<p>
+  Print the note belonging to the item
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect4">
+<h5 id="_format_specifiers_for_todo_items">Format specifiers for todo items</h5>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>p</code>
+</dt>
+<dd>
+<p>
+  Print the priority of the item
+</p>
+</dd>
+<dt class="hdlist1">
+<code>m</code>
+</dt>
+<dd>
+<p>
+  Print the description of the item
+</p>
+</dd>
+<dt class="hdlist1">
+<code>n</code>
+</dt>
+<dd>
+<p>
+  Print the name of the note file belonging to the item
+</p>
+</dd>
+<dt class="hdlist1">
+<code>N</code>
+</dt>
+<dd>
+<p>
+  Print the note belonging to the item
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect4">
+<h5 id="_examples">Examples</h5>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>calcurse -r7 --format-apt='- %S -&gt; %E\n\t%m\n%N'</code>
+</dt>
+<dd>
+<p>
+  Print appointments and events for the next seven days. Also, print the notes
+  attached to each regular appointment (simulates <code>-N</code> for appointments).
+</p>
+</dd>
+<dt class="hdlist1">
+<code>calcurse -r7 --format-apt=' - %m (%S to %E)\n' --format-recur-apt=' - %m (%S to %E)\n'</code>
+</dt>
+<dd>
+<p>
+  Print appointments and events for the next seven days and use a custom format
+  for (recurrent) appointments: ` - Some appointment (18:30 to 21:30)`.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>calcurse -t --format-todo '(%p) %m\n'</code>
+</dt>
+<dd>
+<p>
+  List all todo items and put parentheses around the priority specifiers.
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect4">
+<h5 id="_extended_format_specifiers">Extended format specifiers</h5>
+<div class="paragraph"><p>Extended format specifiers can be used if you want to specify advanced
+formatting options. Extended specifiers are introduced by <code>%(</code> and are
+terminated by a closing parenthesis (<code>)</code>). The following list includes all
+short specifiers and corresponding long options:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>s</code>: <code>(start)</code>
+</p>
+</li>
+<li>
+<p>
+<code>S</code>: <code>(start:epoch)</code>
+</p>
+</li>
+<li>
+<p>
+<code>e</code>: <code>(end)</code>
+</p>
+</li>
+<li>
+<p>
+<code>E</code>: <code>(end:epoch)</code>
+</p>
+</li>
+<li>
+<p>
+<code>d</code>: <code>(duration)</code>
+</p>
+</li>
+<li>
+<p>
+<code>r</code>: <code>(remaining)</code>
+</p>
+</li>
+<li>
+<p>
+<code>m</code>: <code>(message)</code>
+</p>
+</li>
+<li>
+<p>
+<code>n</code>: <code>(noteid)</code>
+</p>
+</li>
+<li>
+<p>
+<code>N</code>: <code>(note)</code>
+</p>
+</li>
+<li>
+<p>
+<code>p</code>: <code>(priority)</code>
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The <code>(start)</code> and <code>(end)</code> specifiers support strftime()-style extended
+formatting options that can be used for fine-grained formatting. Additionally,
+the special formats <code>epoch</code> (which is equivalent to <code>(start:%s)</code> or <code>(end:%s)</code>)
+and <code>default</code> (which is mostly equivalent to <code>(start:%H:%M)</code> or <code>(end:%H:%M)</code>
+but displays <code>..:..</code> if the item doesn&#8217;t start/end at the current day) are
+supported.</p></div>
+<div class="paragraph"><p>The <code>(remaining)</code> and <code>(duration)</code> specifiers support a subset of the
+strftime()-style formatting options, along with two extra qualifiers.
+The supported options are <code>%d</code>, <code>%H</code>, <code>%M</code> and <code>%S</code>, and by default each
+of these is zero-padded to two decimal places. To avoid the
+zero-padding, add <code>-</code> before the formatting option (for example, <code>%-d</code>).
+Additionally, the <code>E</code> option will display the total number of time units
+until the appointment, rather than showing the remaining number of time
+units modulo the next larger time unit. For example, an appointment in
+50 hours will show as 02:00 with the formatting string <code>%H:%M</code>, but will
+show 50:00 with the formatting string <code>%EH:%M</code>. Note that if you are
+combining the <code>-</code> and <code>E</code> options, the <code>-</code> must come first. The default
+format for the <code>(remaining)</code> specifier is <code>%EH:%M</code>.</p></div>
+<div class="paragraph"><p>There are two additional long format specifiers that do not have any
+corresponding short options. They can be used to print an item&#8217;s hash or its
+internal representation and were designed to be used for scripting:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>(hash)</code>
+</p>
+</li>
+<li>
+<p>
+<code>(raw)</code>
+</p>
+</li>
+</ul></div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="basics_invocation_variable">5.1.4. Environment variable for i18n</h4>
+<div class="paragraph"><p><code>calcurse</code> can be compiled with native language support (see
+<a href="#install_requirements_gettext">gettext library</a>). Thus, if you wish to have
+messages displayed into your native language, first make sure it is available
+by looking at the <code>po/LINGUAS</code> file.  This file indicates the set of available
+languages by showing the two-letters corresponding code (for exemple, <strong>fr</strong>
+stands for french).  If you do not find your language, it would be greatly
+appreciated if you could help translating <code>calcurse</code> (see the <a href="#contribute">How to contribute?</a> section).</p></div>
+<div class="paragraph"><p>If your language is available, run <code>calcurse</code> with the following command:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ LC_ALL=fr_FR calcurse</code></pre>
+</div></div>
+<div class="olist lowerroman"><ol class="lowerroman">
+<li>
+<p>
+where <strong>fr_FR</strong> is the locale name in this exemple, but should be replaced by
+the locale corresponding to the desired language.
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>You should also specify the charset to be used, because in some cases the
+accents and such are not displayed correctly.  This charset is indicated at the
+beginning of the po file corresponding to the desired language. For instance,
+you can see in the fr.po file that it uses the iso-8859-1 charset, so you could
+run <code>calcurse</code> using the following command:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ LC_ALL=fr_FR.ISO8859-1 calcurse</code></pre>
+</div></div>
+</div>
+<div class="sect3">
+<h4 id="_other_environment_variables">5.1.5. Other environment variables</h4>
+<div class="paragraph"><p>The following environment variables affect the way <code>calcurse</code> operates:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>VISUAL</code>
+</dt>
+<dd>
+<p>
+  Specifies the external editor to use for writing notes.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>EDITOR</code>
+</dt>
+<dd>
+<p>
+  If the <code>VISUAL</code> environment variable is not set, then <code>EDITOR</code> will be used
+  as the default external editor. If none of those variables are set, then
+  <code>/usr/bin/vi</code> is used instead.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>PAGER</code>
+</dt>
+<dd>
+<p>
+  Specifies the default viewer to be used for reading notes.  If this variable
+  is not set, then <code>/usr/bin/less</code> is used.
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_hooks">5.2. Hooks</h3>
+<div class="paragraph"><p>You can place scripts in <code>$HOME/.calcurse/hooks/</code> to trigger actions at certain
+events. To enable a hook, add a script with one of the following names to this
+directory. Also make sure the scripts are executable.</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>pre-load</strong>
+</dt>
+<dd>
+<p>
+  Executed before the data files are loaded.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>post-load</strong>
+</dt>
+<dd>
+<p>
+  Executed after the data files are saved.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>pre-save</strong>
+</dt>
+<dd>
+<p>
+  Executed before the data files are loaded.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>post-save</strong>
+</dt>
+<dd>
+<p>
+  Executed after the data files are saved.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>Some examples can be found in the <code>contrib/hooks/</code> directory of the calcurse
+source tree.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_user_interface">5.3. User interface</h3>
+<div class="sect3">
+<h4 id="_non_interactive_mode">5.3.1. Non-interactive mode</h4>
+<div class="paragraph"><p>When called with at least one of the following arguments: <code>-a</code>, <code>-d</code>, <code>-h</code>,
+<code>-n</code>, <code>-t</code>, <code>-v</code>, <code>-x</code>, <code>calcurse</code> is started in non-interactive mode.  This
+means the desired information will be displayed, and after that, <code>calcurse</code>
+simply quits and you are driven back to the shell prompt.</p></div>
+<div class="paragraph"><p>That way, one can add a line such as <code>calcurse --todo --appointment</code> in its
+init config file to display at logon the list of tasks and appointments
+scheduled for the current day.</p></div>
+</div>
+<div class="sect3">
+<h4 id="basics_interface_interactive">5.3.2. Interactive mode</h4>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">Key bindings that are indicated in this manual correspond to the default
+      ones, defined when <code>calcurse</code> is launched for the first time. If those
+      key bindings do not suit user&#8217;s needs, it is possible to change them
+      within the keys configuration menu (see <a href="#options_keys">key bindings</a>).</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>When called without any argument or only with the <code>-c</code> option, <code>calcurse</code> is
+started in interactive mode. In this mode, you are shown an interface
+containing three different panels which you can browse using the <code>TAB</code> key,
+plus a notification bar and a status bar (see figure below).</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code> appointment panel---.                                   .---calendar panel
+                     |                                   |
+                     v                                   v
+ +------------------------------------++----------------------------+
+ |          Appointments              ||          Calendar          |
+ |------------------------------------||----------------------------|
+ |                 (|)  April 6, 2006 ||         April 2006         |
+ |                                    ||Mon Tue Wed Thu Fri Sat Sun |
+ |                                    ||                      1   2 |
+ |                                    ||  3   4   5   6   7   8   9 |
+ |                                    || 10  11  12  13  14  15  16 |
+ |                                    || 17  18  19  20  21  22  23 |
+ |                                    || 24  25  26  27  28  29  30 |
+ |                                    ||                            |
+ |                                    |+----------------------------+
+ |                                    |+----------------------------+
+ |                                    ||            ToDo            | todo
+ |                                    ||----------------------------| panel
+ |                                    ||                            |   |
+ |                                    ||                            |   |
+ |                                    ||                            |&lt;--.
+ |                                    ||                            |
+ +------------------------------------++----------------------------+
+ |---[ Mon 2006-11-22 | 10:11:43 ]---(apts)----&gt; 01:20 :: lunch &lt;---|&lt;--.
+ +------------------------------------------------------------------+ notify-bar
+ | ? Help     R Redraw    H/L -/+1 Day      G GoTo       C Config   |
+ | Q Quit     S Save      J/K -/+1 Week   Tab Chg View              |&lt;-.
+ +------------------------------------------------------------------+  |
+                                                                       |
+                                                                 status bar</code></pre>
+</div></div>
+<div class="paragraph"><p>The first panel represents a calendar which allows to highlight a particular
+day, the second one contains the list of the events and appointments on that
+day, and the last one contains a list of tasks to do but which are not assigned
+to any specific day.</p></div>
+<div class="paragraph"><p>Depending on the selected view, the calendar could either display a monthly
+(default as shown in previous figure) or weekly view.  The weekly view would
+look like the following:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>+------------------------------------+
+|              Calendar              |
+|----------------------------(# 13)--|
+|    Mon Tue Wed Thu Fri Sat Sun     |
+|     29  30  31  01  02  03  04     |
+|                               &lt;----+--  slice 1: 00:00 to 04:00 AM
+|       --  --  --  --  --  --       |
+|                               &lt;----+--  slice 2: 04:00 to 08:00 AM
+|       --  --  --  --  --  --       |
+|                               &lt;----+--  slice 3: 08:00 to 12:00 AM
+|    -  --  --  --  --  --  --  -  &lt;-+--  midday
+|                               &lt;----+--  slice 4: 12:00 to 04:00 PM
+|       --  --  --  --  --  --       |
+|                               &lt;----+--  slice 5: 04:00 to 08:00 PM
+|       --  --  --  --  --  --       |
+|                               &lt;----+--  slice 6: 08:00 to 12:00 PM
++------------------------------------+</code></pre>
+</div></div>
+<div class="paragraph"><p>The current week number is displayed on the top-right side of the panel (<strong># 13</strong>
+meaning it is the 13th week of the year in the above example). The seven days
+of the current week are displayed in column. Each day is divided into slices of
+4 hours each (6 slices in total, see figure above). A slice will appear in a
+different color if an appointment falls into the corresponding time-slot.</p></div>
+<div class="paragraph"><p>In the appointment panel, one can notice the <strong><code>(|)</code></strong> sign just in front of the
+date.  This indicates the current phase of the moon.  Depending on which is the
+current phase, the following signs can be seen:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+`  |) `
+</dt>
+<dd>
+<p>
+  first quarter
+</p>
+</dd>
+<dt class="hdlist1">
+` (|) `
+</dt>
+<dd>
+<p>
+  full moon
+</p>
+</dd>
+<dt class="hdlist1">
+`  (| `
+</dt>
+<dd>
+<p>
+  last quarter
+</p>
+</dd>
+<dt class="hdlist1">
+`  |  `
+</dt>
+<dd>
+<p>
+  new moon
+</p>
+</dd>
+<dt class="hdlist1">
+no sign
+</dt>
+<dd>
+<p>
+  Phase of the moon does not correspond to any of the above ones.
+</p>
+</dd>
+</dl></div>
+<div class="paragraph"><p>At the very bottom of the screen there is a status bar, which indicates the
+possible actions and the corresponding keystrokes.</p></div>
+<div class="paragraph"><p>Just above this status bar is the notify-bar, which indicates from left to
+right : the current date, the current time, the calendar file currently in use
+(apts on the above example, which is the default calendar file, see the
+following section), and the next appointment within the upcoming 24 hours. Here
+it says that it will be lunch time in one hour and twenty minutes.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">Some actions, such as editing or adding an item, require to type in some
+      text. This is done with the help of the built-in input line editor.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Within this editor, if a line is longer than the screen width, a <code>&gt;</code>, <code>*</code>, or
+<code>&lt;</code> character is displayed in the last column indicating that there are more
+character after, before and after, or before the current position,
+respectively. The line is scrolled horizontally as necessary.</p></div>
+<div class="paragraph"><p>Moreover, some editing commands are bound to particular control characters.
+Hereafter are indicated the available editing commands (<code>^</code> stands for the
+control key):</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>^a</code>
+</dt>
+<dd>
+<p>
+  moves the cursor to the beginning of the input line
+</p>
+</dd>
+<dt class="hdlist1">
+<code>^b</code>
+</dt>
+<dd>
+<p>
+  moves the cursor backward
+</p>
+</dd>
+<dt class="hdlist1">
+<code>^d</code>
+</dt>
+<dd>
+<p>
+  deletes one character forward
+</p>
+</dd>
+<dt class="hdlist1">
+<code>^e</code>
+</dt>
+<dd>
+<p>
+  moves the cursor to the end of the input line
+</p>
+</dd>
+<dt class="hdlist1">
+<code>^f</code>
+</dt>
+<dd>
+<p>
+  moves the cursor forward
+</p>
+</dd>
+<dt class="hdlist1">
+<code>^h</code>
+</dt>
+<dd>
+<p>
+  deletes one character backward
+</p>
+</dd>
+<dt class="hdlist1">
+<code>^k</code>
+</dt>
+<dd>
+<p>
+  deletes the input from the cursor to the end of the line
+</p>
+</dd>
+<dt class="hdlist1">
+<code>^w</code>
+</dt>
+<dd>
+<p>
+  deletes backward to the beginning of the current word
+</p>
+</dd>
+<dt class="hdlist1">
+<code>ESCAPE</code>
+</dt>
+<dd>
+<p>
+    cancels the editing
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="basics_daemon">5.4. Background mode</h3>
+<div class="paragraph"><p>When the daemon mode is enabled in the notification configuration menu (see
+<a href="#options_notify">Notify-bar settings</a>), <code>calcurse</code> will stay in background
+when the user interface is not running. In background mode, <code>calcurse</code> checks
+for upcoming appointments and runs the user-defined notification command when
+  necessary. When the user interface is started again, the daemon automatically
+  stops.</p></div>
+<div class="paragraph"><p>&#8216;calcurse` background activity can be logged (set the <code>daemon.log</code> variable in
+the notification configuration <a href="#options_notify">menu</a>), and in that case,
+information about the daemon start and stop time, reminders&#8217; command launch
+time, signals received&#8230; will be written in the <code>daemon.log</code> file (see section
+<a href="#basics_files">files</a>).</p></div>
+<div class="paragraph"><p>Using the <code>--status</code> command line option (see section
+<a href="#basics_invocation_commandline">Command line arguments</a>), one can know if
+<code>calcurse</code> is currently running in background or not.  If the daemon is
+running, a message like the following one will be displayed (the pid of the
+daemon process will be shown):</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>calcurse is running in background (pid 14536)</code></pre>
+</div></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">To stop the daemon, just send the <code>TERM</code> signal to it, using a command
+      such as: <code>kill daemon_pid</code>, where <strong>daemon_pid</strong> is the process id of the
+      daemon (14536 in the above example).</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="basics_files">5.5. calcurse files</h3>
+<div class="paragraph"><p>The following structure is created in your <code>$HOME</code>  directory (or in the
+directory you specified with  the  -D  option) the first time <code>calcurse</code> is run
+:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$HOME/.calcurse/
+           |___notes/
+           |___conf
+           |___keys
+           |___apts
+           |___todo</code></pre>
+</div></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>notes/</code>
+</dt>
+<dd>
+<p>
+  this subdirectory contains descriptions of the notes which are attached to
+  appointments, events or todos. Since the file name of each note file is a
+  SHA1 hash of the note itself, multiple items can share the same note file.
+  calcurse provides a garbage collector (see the <code>-g</code> command line parameter)
+  that can be used to remove note files which are no longer linked to any item.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>conf</code>
+</dt>
+<dd>
+<p>
+  this file contains the user configuration
+</p>
+</dd>
+<dt class="hdlist1">
+<code>keys</code>
+</dt>
+<dd>
+<p>
+  this file contains the user-defined key bindings
+</p>
+</dd>
+<dt class="hdlist1">
+<code>apts</code>
+</dt>
+<dd>
+<p>
+  this file contains  all  of the events and user&#8217;s appointments
+</p>
+</dd>
+<dt class="hdlist1">
+<code>todo</code>
+</dt>
+<dd>
+<p>
+  this file contains the todo list
+</p>
+</dd>
+</dl></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">If the logging of calcurse daemon activity was set in the notification
+      configuration menu, the extra file <code>daemon.log</code> will appear in calcurse
+      data directory. This file contains logs about calcurse activity when
+      running in background.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_import_export_capabilities">5.6. Import/Export capabilities</h3>
+<div class="paragraph"><p>The import and export capabilities offered by <code>calcurse</code> are described below.</p></div>
+<div class="sect3">
+<h4 id="_import">5.6.1. Import</h4>
+<div class="paragraph"><p>Data in icalendar format as described in the rfc2445 specification (see
+<a href="#links_others">links</a> section below) can be imported into calcurse.  Calcurse
+ical parser is based on version 2.0 of this specification, but for now on, only
+a subset of it is supported.</p></div>
+<div class="paragraph"><p>The following icalendar properties are handled by calcurse:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>VTODO</code> items: "PRIORITY", "VALARM", "SUMMARY", "DESCRIPTION"
+</p>
+</li>
+<li>
+<p>
+<code>VEVENT</code> items: "DTSTART", "DTEND", "DURATION", "RRULE", "EXDATE", "VALARM",
+  "SUMMARY", "DESCRIPTION"
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>The icalendar <code>DESCRIPTION</code> property will be converted into calcurse format by
+adding a note to the item. If a "VALARM" property is found, the item will be
+flagged as important and the user will get a notification (this is only
+applicable to appointments).</p></div>
+<div class="paragraph"><p>Here are the properties that are not implemented:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+negative time durations are not taken into account (item is skipped)
+</p>
+</li>
+<li>
+<p>
+some recurence frequences are not recognize: "SECONDLY" / "MINUTELY" /
+  "HOURLY"
+</p>
+</li>
+<li>
+<p>
+some recurrence keywords are not recognized (all those starting with <code>BY</code>):
+  "BYSECOND" / "BYMINUTE" / "BYHOUR" / "BYDAY" / "BYMONTHDAY" / "BYYEARDAY" /
+  "BYWEEKNO" / "BYMONTH" / "BYSETPOS" plus "WKST"
+</p>
+</li>
+<li>
+<p>
+the recurrence exception keyword "EXRULE" is not recognized
+</p>
+</li>
+<li>
+<p>
+timezones are not taken into account
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect3">
+<h4 id="_export">5.6.2. Export</h4>
+<div class="paragraph"><p>Two possible export formats are available: <code>ical</code> and <code>pcal</code> (see section
+<a href="#links_others">Links</a> below to find out about those formats).</p></div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_online_help">5.7. Online help</h3>
+<div class="paragraph"><p>At any time, the built-in help system can be invoked by pressing the <code>?</code> key.
+By default, it shows an introduction to the help system in an external pager.
+You need to exit the pager in order to get back to calcurse (pressing <code>q</code>
+should almost always work). The default pager can be changed by setting the
+PAGER environment variable.</p></div>
+<div class="paragraph"><p>If you want to display help on a specific feature or key binding, type <code>:help
+&lt;feature&gt;</code> (e.g. <code>:help add</code>) or <code>:help &lt;key&gt;</code> (e.g. <code>:help ^A</code>) on the main
+screen.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">6. Options</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>All of the <code>calcurse</code> parameters are configurable from the Configuration menu
+available when pressing <code>C</code>. You are then driven to a submenu with five
+possible choices : pressing <code>C</code> again will lead you to the Color scheme
+configuration, pressing <code>L</code> allows you to choose the layout of the main
+<code>calcurse</code> screen (in other words, where to put the three different panels on
+screen), pressing <code>G</code> permits you to choose between different general options,
+pressing <code>K</code> opens the key bindings configuration menu, and last you can modify
+the notify-bar settings by pressing <code>N</code>.</p></div>
+<div class="sect2">
+<h3 id="options_general">6.1. General options</h3>
+<div class="paragraph"><p>These options control <code>calcurse</code> general behavior, as described below:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>appearance.compactpanels</code> (default: <strong>no</strong>)
+</dt>
+<dd>
+<p>
+  In compact panels mode, all captions are removed from panels.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>appearance.defaultpanel</code> (default: <strong>calendar</strong>)
+</dt>
+<dd>
+<p>
+  This can be used to specify the panel to be selected on startup.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.autosave</code> (default: <strong>yes</strong>)
+</dt>
+<dd>
+<p>
+  This option allows to automatically save the user&#8217;s data (if set to <strong>yes</strong>)
+  when quitting.  &lt;p class="rq"&gt;&lt;span class="valorise"&gt;warning:&lt;/span&gt; No data
+  will be automatically saved if <code>general.autosave</code> is set to <strong>no</strong>.  This means
+  the user must press <code>S</code> (for saving) in order to retrieve its modifications.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.autogc</code> (default: <strong>no</strong>)
+</dt>
+<dd>
+<p>
+  Automatically run the garbage collector for note files when quitting.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.periodicsave</code> (default: <strong>0</strong>)
+</dt>
+<dd>
+<p>
+  If different from <code>0</code>, user&#8217;s data will be automatically saved every
+  <strong>general.periodicsave</strong> minutes.  When an automatic save is performed, two
+  asterisks (i.e. <code>**</code>) will appear on the top right-hand side of the screen).
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.confirmquit</code> (default: <strong>yes</strong>)
+</dt>
+<dd>
+<p>
+  If set to <strong>yes</strong>, confirmation is required before quitting, otherwise pressing
+  <code>Q</code> will cause <code>calcurse</code> to quit without prompting for user confirmation.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.confirmdelete</code> (default: <strong>yes</strong>)
+</dt>
+<dd>
+<p>
+  If this option is set to <strong>yes</strong>, pressing <code>D</code> for deleting an item (either a
+  <strong>todo</strong>, <strong>appointment</strong>, or <strong>event</strong>), will lead to a prompt asking for user
+  confirmation before removing the selected item from the list.  Otherwise, no
+  confirmation will be needed before deleting the item.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.systemdialogs</code> (default: <strong>yes</strong>)
+</dt>
+<dd>
+<p>
+  Setting this option to <strong>no</strong> will result in skipping the system dialogs
+  related to the saving and loading of data.  This can be useful to speed up
+  the input/output processes.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.progressbar</code> (default: <strong>yes</strong>)
+</dt>
+<dd>
+<p>
+  If set to <strong>no</strong>, this will cause the disappearing of the progress bar which is
+  usually shown when saving data to file.  If set to <strong>yes</strong>, this bar will be
+  displayed, together with the name of the file being saved (see section
+  <a href="#basics_files">calcurse files</a>).
+</p>
+</dd>
+<dt class="hdlist1">
+<code>appearance.calendarview</code> (default: <strong>0</strong>)
+</dt>
+<dd>
+<p>
+  If set to <code>0</code>, the monthly calendar view will be displayed by default
+  otherwise it is the weekly view that will be displayed.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>general.firstdayofweek</code> (default: <strong>monday</strong>)
+</dt>
+<dd>
+<p>
+  One can choose between Monday and Sunday as the first day of the week. If
+  <code>general.firstdayofweek</code> is set to <strong>monday</strong>, Monday will be first in the
+  calendar view. Otherwise, Sunday will be the first day of the week.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>format.outputdate</code> (default: <strong>%D</strong>)
+</dt>
+<dd>
+<p>
+  This option indicates the format to be used when displaying dates in
+  non-interactive mode. Using the default values, dates are displayed the
+  following way: <strong>mm/dd/aa</strong>.  You can see all of the possible formats by typing
+  <code>man 3 strftime</code> inside a terminal.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>format.inputdate</code> (default: <strong>1</strong>)
+</dt>
+<dd>
+<p>
+  This option indicates the format that will be used to enter dates in
+  interactive mode. Four choices are available:
+</p>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+mm/dd/yyyy
+</p>
+</li>
+<li>
+<p>
+dd/mm/yyyy
+</p>
+</li>
+<li>
+<p>
+yyyy/mm/dd
+</p>
+</li>
+<li>
+<p>
+yyyy-mm-dd
+</p>
+</li>
+</ol></div>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="options_keys">6.2. Key bindings</h3>
+<div class="paragraph"><p>One can define ones own key bindings within the <code>Keys</code> configuration menu. The
+default keys look like the one used by the <code>vim</code> editor, especially the
+displacement keys. Anyway, within this configuration menu, users can redefine
+all of the keys available from within calcurse&#8217;s user interface.</p></div>
+<div class="paragraph"><p>To define new key bindings, first highlight the action to which it will apply.
+Then, delete the actual key binding if necessary, and add a new one. You will
+then be asked to press the key corresponding to the new binding. It is possible
+to define more than one key binding for a single action.</p></div>
+<div class="paragraph"><p>An automatic check is performed to see if the new key binding is not already
+set for another action. In that case, you will be asked to choose a different
+one. Another check is done when exiting from this menu, to make sure all
+possible actions have a key associated with it.</p></div>
+<div class="paragraph"><p>The following keys can be used to define bindings:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+lower-case, upper-case letters and numbers, such as <code>a</code>, <code>Z</code>, <code>0</code>
+</p>
+</li>
+<li>
+<p>
+CONTROL-key followed by one of the above letters
+</p>
+</li>
+<li>
+<p>
+escape, horizontal tab, and space keys
+</p>
+</li>
+<li>
+<p>
+arrow keys (up, down, left, and right)
+</p>
+</li>
+<li>
+<p>
+<code>HOME</code> and <code>END</code> keys
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>While inside the key configuration menu, an online help is available for each
+one of the available actions. This help briefly describes what the highlighted
+action is used for.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">As of calcurse 3.0.0, displacement commands can be preceded by an
+      optional number to repeat the command. For example, <code>10k</code> will move the
+      cursor ten weeks forwards if you use default key bindings.</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_color_themes">6.3. Color themes</h3>
+<div class="paragraph"><p><code>calcurse</code> color theme can be customized to suit user&#8217;s needs. To change the
+default theme, the configuration page displays possible choices for foreground
+and background colors.  Using arrows or calcurse displacement keys to move, and
+<code>X</code> or space to select a color, user can preview the theme which will be
+applied.  It is possible to keep the terminal&#8217;s default colors by selecting the
+corresponding choice in the list.</p></div>
+<div class="paragraph"><p>The chosen color theme will then be applied to the panel borders, to the
+titles, to the keystrokes, and to general informations displayed inside status
+bar. A black and white theme is also available, in order to support non-color
+terminals.</p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">Depending on your terminal type and on the value of the <code>$TERM</code>
+      environment variable, color could or could not be supported. An error
+      message will appear if you try to change colors whereas your terminal
+      does not support this feature.  If you do know your terminal supports
+      colors but could not get <code>calcurse</code> to display them, try to set your
+      <code>$TERM</code> variable to another value (such as <strong>xterm-xfree86</strong> for instance).</td>
+</tr></table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_layout_configuration">6.4. Layout configuration</h3>
+<div class="paragraph"><p>The layout corresponds to the position of the panels inside <code>calcurse</code> screen.
+The default layout makes the calendar panel to be displayed on the top-right
+corner of the terminal, the todo panel on the bottom-right corner, while the
+appointment panel is displayed on the left hand-side of the screen (see the
+figure in section <a href="#basics_interface_interactive">Interactive mode</a> for an
+example of the default layout).  By choosing another layout in the
+configuration screen, user can customize <code>calcurse</code> appearance to best suit his
+needs by placing the different panels where needed.</p></div>
+<div class="paragraph"><p>The following option is used to modify the layout configuration:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>appearance.layout</code> (default: <strong>0</strong>)
+</dt>
+<dd>
+<p>
+  Eight different layouts are to be chosen from (see layout configuration
+  screen for the description of the available layouts).
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="_sidebar_configuration">6.5. Sidebar configuration</h3>
+<div class="paragraph"><p>The sidebar is the part of the screen which contains two panels: the calendar
+and, depending on the chosen layout, either the todo list or the appointment
+list.</p></div>
+<div class="paragraph"><p>The following option is used to change the width of the sidebar:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>appearance.sidebarwidth</code> (default: <strong>0</strong>)
+</dt>
+<dd>
+<p>
+  Width (in percentage, 0 being the minimum width) of the side bar.
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect2">
+<h3 id="options_notify">6.6. Notify-bar settings</h3>
+<div class="paragraph"><p>The following options are used to modify the notify-bar behavior:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<code>appearance.notifybar</code> (default: <strong>yes</strong>)
+</dt>
+<dd>
+<p>
+  This option indicates if you want the notify-bar to be displayed or not.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>format.notifydate</code> (default: <strong>%a %F</strong>)
+</dt>
+<dd>
+<p>
+  With this option, you can specify the format to be used to display the
+  current date inside the notification bar. You can see all of the possible
+  formats by typing <code>man 3 strftime</code> inside a terminal.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>format.notifytime</code> (default: <strong>%T</strong>)
+</dt>
+<dd>
+<p>
+  With this option, you can specify the format to be used to display the
+  current time inside the notification bar. You can see all of the possible
+  formats by typing <code>man 3 strftime</code> inside a terminal.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>notification.warning</code> (default: <strong>300</strong>)
+</dt>
+<dd>
+<p>
+  When there is an appointment which is flagged as <code>important</code> within the next
+  <code>notification.warning</code> seconds, the display of that appointment inside the
+  notify-bar starts to blink. Moreover, the command defined by the
+  <code>notification.command</code> option will be launched.  That way, the user is warned
+  and knows there will be soon an upcoming appointment.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>notification.command</code> (default: <strong>printf <em>\a</em></strong>)
+</dt>
+<dd>
+<p>
+  This option indicates which command is to be launched when there is an
+  upcoming appointment flagged as <code>important</code>. This command will be passed to
+  the user&#8217;s shell which will interpret it. To know what shell must be used,
+  the content of the <code>$SHELL</code> environment variable is used. If this variable is
+  not set, <code>/bin/sh</code> is used instead.
+</p>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph"><p>Say the <code>mail</code> command is available on the user&#8217;s system, one can use the
+following command to get notified by mail of an upcoming appointment (the
+appointment description will also be mentioned in the mail body):</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ calcurse --next | mail -s "[calcurse] upcoming appointment!" user@host.com</code></pre>
+</div></div>
+</div></div>
+</dd>
+<dt class="hdlist1">
+<code>notification.notifyall</code> (default: <strong>flagged-only</strong>)
+</dt>
+<dd>
+<p>
+  If set to flagged-only, you are only notified of flagged items. If set to
+  unflagged-only, you are only notified of unflagged items. If set to all,
+  notifications are always sent, independent of whether an item is flagged or
+  not. For historical reasons, this option also accepts boolean values where
+  yes equals flagged-only and no equals unflagged-only.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>daemon.enable</code> (default: <strong>no</strong>)
+</dt>
+<dd>
+<p>
+  If set to yes, daemon mode will be enabled, meaning <code>calcurse</code> will run into
+  background when the user&#8217;s interface is exited. This will allow the
+  notifications to be launched even when the interface is not running. More
+  details can be found in section <a href="#basics_daemon">Background mode</a>.
+</p>
+</dd>
+<dt class="hdlist1">
+<code>daemon.log</code> (default: <strong>no</strong>)
+</dt>
+<dd>
+<p>
+  If set to yes, <code>calcurse</code> daemon activity will be logged (see section
+  <a href="#basics_files">files</a>).
+</p>
+</dd>
+</dl></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_known_bugs">7. Known bugs</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Incorrect highlighting of items appear when using calcurse black and white
+theme together with a <code>$TERM</code> variable set to <strong>xterm-color</strong>.  To fix this bug,
+and as advised by Thomas E. Dickey (<code>xterm</code> maintainer), <strong>xterm-xfree86</strong> should
+be used instead of <strong>xterm-color</strong> to set the <code>$TERM</code> variable:</p></div>
+<div class="quoteblock">
+<div class="content">
+<div class="paragraph"><p>"The xterm-color value for $TERM is a bad choice for XFree86 xterm because it
+is commonly used for a <code>terminfo</code> entry which happens to not support bce. Use
+the xterm-xfree86 entry which is distributed with XFree86 xterm (or the similar
+one distributed with ncurses)."</p></div>
+</div>
+<div class="attribution">
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="bugs">8. Reporting bugs and feedback</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Please send bug reports and feedback to: <code>misc .at. calcurse .dot. org</code>.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contribute">9. How to contribute?</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>If you would like to contribute to the project, you can first send your
+feedback on what you like or dislike, and if there are features you miss in
+<code>calcurse</code>.  For now on, possible contributions concern the translation of
+<code>calcurse</code> messages and documentation.</p></div>
+<div class="sect2">
+<h3 id="_translating_documentation">9.1. Translating documentation</h3>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/note.png" alt="Note" />
+</td>
+<td class="content">We recently dropped all translations of the manual files from the
+      distribution tarball. There are plan to reintroduce them in form of a
+      Wiki on the calcurse website. Please follow the mailing lists for
+      up-to-date information.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>The <strong>doc/</strong> directory of the source package already contains translated version
+of <code>calcurse</code> manual. However, if the manual is not yet available into your
+native language, it would be appreciated if you could help translating it.</p></div>
+<div class="paragraph"><p>To do so, just copy one of the existing manual file to <code>manual_XX.html</code>, where
+<strong>XX</strong> identifies your language. Then translate this newly created file and send
+it to the author (see <a href="#bugs">Reporting bugs and feeback</a>), so that it can be
+included in the next <code>calcurse</code> release.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_calcurse_i18n">9.2. calcurse i18n</h3>
+<div class="paragraph"><p>As already mentioned, <code>gettext</code> utilities are used by <code>calcurse</code> to produce
+multi-lingual messages. We are currently using
+<a href="http://www.transifex.net/">Transifex</a> to manage those translations.</p></div>
+<div class="paragraph"><p>This section provides informations about how to translate those messages into
+your native language. However, this howto is deliberately incomplete, focusing
+on working with <code>gettext</code> for <code>calcurse</code> specifically.  For more comprehensive
+informations or to grasp the Big Picture of Native Language Support, you should
+refer to the <code>GNU gettext</code> manual at:
+<a href="http://www.gnu.org/software/gettext/manual/">http://www.gnu.org/software/gettext/manual/</a></p></div>
+<div class="admonitionblock">
+<table><tr>
+<td class="icon">
+<img src="./images/icons/important.png" alt="Important" />
+</td>
+<td class="content">Since we switched to Transifex, editing <strong>po</strong> files is not necessary
+           anymore as Transifex provides a user-friendly, intuitive web
+           interface for translators. Knowledge of <code>gettext</code> and the <strong>po</strong>
+           format is still useful for those of you who prefer the command line
+           and local editing. If you want to use the web UI to edit the
+           translation strings, you can skip over to <a href="#transifex_webui">Using            the Transifex web UI</a> tough.</td>
+</tr></table>
+</div>
+<div class="paragraph"><p>Basically, three different people get involved in the translation chain:
+coders, language coordinator, and translators. After a quick overview of how
+things work, the translator tasks will be described hereafter.</p></div>
+<div class="sect3">
+<h4 id="_overview_2">9.2.1. Overview</h4>
+<div class="paragraph"><p>To be able to display texts in the native language of the user, two steps are
+required: <strong>internationalization</strong> (i18n) and <strong>localization</strong> (l10n).</p></div>
+<div class="paragraph"><p>i18n is about making <code>calcurse</code> support multiple languages. It is performed by
+coders, who will mark translatable texts and provide a way to display them
+translated at runtime.</p></div>
+<div class="paragraph"><p>l10n is about making the i18n&#8217;ed <code>calcurse</code> adapt to the specific language of
+the user, ie translating the strings previously marked by the developers, and
+setting the environment correctly for <code>calcurse</code> to use the result of this
+translation.</p></div>
+<div class="paragraph"><p>So, translatable strings are first marked by the coders within the <code>C</code> source
+files, then gathered in a template file (<strong>calcurse.pot</strong> - the <strong>pot</strong> extension
+meaning <strong>portable object template</strong>). The content of this template file is then
+merged with the translation files for each language (<strong>fr.po</strong> for French, for
+instance - with <strong>po</strong> standing for <strong>portable object</strong>, ie meant to be read and
+edited by humans). A given translation team will take this file, translate its
+strings, and send it back to the developers. At compilation time, a binary
+version of this file (for efficiency reasons) will be produced (<strong>fr.mo</strong> - <strong>mo</strong>
+stands for <strong>machine object</strong>, i.e. meant to be read by programs), and then
+installed.  Then <code>calcurse</code> will use this file at runtime, translating the
+strings according to the locale settings of the user.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_translator_tasks">9.2.2. Translator tasks</h4>
+<div class="paragraph"><p>Suppose someone wants to initiate the translation of a new language. Here are
+the steps to follow:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+First, find out what the locale name is. For instance, for french, it is
+  <code>fr_FR</code>, or simply <code>fr</code>. This is the value the user will have to put in his
+  <code>LC_ALL</code> environment variable for software to be translated (see
+  <a href="#basics_invocation_variable">Environment variable for i18n</a>).
+</p>
+</li>
+<li>
+<p>
+Then, go into the <strong>po/</strong> directory, and create a new po-file
+  from the template file using the following command: <code>msginit -i calcurse.pot
+  -o fr.po -l fr --no-translator</code> If you do not have <code>msginit</code> installed on
+  your system, simply copy the <strong>calcurse.pot</strong> file to <strong>fr.po</strong> and edit the
+  header by hand.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Now, having this <strong>fr.po</strong> file, the translator is ready to begin.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_po_files">9.2.3. po-files</h4>
+<div class="paragraph"><p>The format of the po-files is quite simple. Indeed, po-files are made of four
+things:</p></div>
+<div class="olist arabic"><ol class="arabic">
+<li>
+<p>
+<strong>location lines:</strong> tells you where the strings can be seen (name of file and
+   line number), in case you need to see a bit of context.
+</p>
+</li>
+<li>
+<p>
+<strong>msgid lines:</strong> the strings to translate.
+</p>
+</li>
+<li>
+<p>
+<strong>msgstr lines:</strong> the translated strings.
+</p>
+</li>
+<li>
+<p>
+<strong>lines prefixed with <code>#</code>:</strong> comments (some with a special meaning, as we will
+   see below).
+</p>
+</li>
+</ol></div>
+<div class="paragraph"><p>Basically, all you have to do is fill the <strong>msgstr</strong> lines with the translation
+of the above <strong>msgid</strong> line.</p></div>
+<div class="paragraph"><p>A few notes:</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+<strong>Fuzzy strings</strong>
+</dt>
+<dd>
+<p>
+  You will meet strings marked with a <code>"#, fuzzy"</code> comment. <code>calcurse</code> won&#8217;t
+  use the translations of such strings until you do something about them.  A
+  string being fuzzy means either that the string has already been translated
+  but has since been changed in the sources of the program, or that this is a
+  new string for which <code>gettext</code> made a <em>wild guess</em> for the translation, based
+  on other strings in the file.  It means you have to review the translation.
+  Sometimes, the original string has changed just because a typo has been
+  fixed. In this case, you won&#8217;t have to change anything. But sometimes, the
+  translation will no longer be accurate and needs to be changed.  Once you are
+  done and happy with the translation, just remove the <code>"#, fuzzy"</code> line, and
+  the translation will be used again in <code>calcurse</code>.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>c-format strings and special sequences</strong>
+</dt>
+<dd>
+<p>
+  Some strings have the following comment: <code>"#, c-format"</code>.  This tells that
+  parts of the string to translate have a special meaning for the program, and
+  that you should leave them alone.  For instance, %-sequences, like <code>"%s"</code>.
+  These means that <code>calcurse</code> will replace them with another string. So it is
+  important it remains.  There are also \-sequences, like <code>\n</code> or <code>\t</code>. Leave
+  them, too. The former represents an end of line, the latter a tabulation.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>Translations can be wrapped</strong>
+</dt>
+<dd>
+<p>
+  If lines are too long, you can just break them like this:
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>msgid ""
+"some very long line"
+"another line"</code></pre>
+</div></div>
+</dd>
+<dt class="hdlist1">
+<strong>po-file header</strong>
+</dt>
+<dd>
+<p>
+  At the very beginning of the po-file, the first string form a header, where
+  various kind of information has to be filled in. Most important one is the
+  charset. It should resemble
+</p>
+<div class="listingblock">
+<div class="content">
+<pre><code>"Content-Type: text/plain; charset=utf-8\n"</code></pre>
+</div></div>
+<div class="paragraph"><p>You should also fill in the Last-Translator field, so that potential
+contributors can contact you if they want to join you in the translation team,
+or have remarks/typo fixes to give about the translations. You can either just
+give your name/nick, or add an email address, for exemple:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>"Last-Translator: Frederic Culot &lt;frederic@culot.org&gt;\n"</code></pre>
+</div></div>
+</dd>
+<dt class="hdlist1">
+<strong>Comments</strong>
+</dt>
+<dd>
+<p>
+  Adding comments (lines begining with the <code>#</code> character) can be a good way to
+  point out problems or translation difficulties to proofreaders or other
+  members of your team.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>Strings size</strong>
+</dt>
+<dd>
+<p>
+  <code>calcurse</code> is a curses/console program, thus it can be heavily dependant on
+  the terminal size (number of columns). You should think about this when
+  translating. Often, a string must fit into a single line (standard length is
+  80 characters). Don&#8217;t translate blindly, try to look where your string will
+  be displayed to adapt your translation.
+</p>
+</dd>
+<dt class="hdlist1">
+<strong>A few useful tools</strong>
+</dt>
+<dd>
+<p>
+  The po-file format is very simple, and the file can be edited with a standard
+  text editor.  But if you prefer, there are few specialized tools you may find
+  convenient for translating:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>poEdit</code> (<a href="http://www.poedit.org/">http://www.poedit.org/</a>)
+</p>
+</li>
+<li>
+<p>
+<code>KBabel</code> (<a href="http://i18n.kde.org/tools/kbabel/">http://i18n.kde.org/tools/kbabel/</a>)
+</p>
+</li>
+<li>
+<p>
+<code>GTranslator</code> (<a href="http://gtranslator.sourceforge.net/">http://gtranslator.sourceforge.net/</a>)
+</p>
+</li>
+<li>
+<p>
+<code>Emacs</code> po mode
+</p>
+</li>
+<li>
+<p>
+<code>Vim</code> po mode
+</p>
+</li>
+</ul></div>
+</dd>
+<dt class="hdlist1">
+<strong>And finally</strong>
+</dt>
+<dd>
+<p>
+  I hope you&#8217;ll have fun contributing to a more internationalized world. :) If
+  you have any more questions, don&#8217;t hesitate to contact us at <strong>misc .at.
+  calcurse .dot. org</strong>.
+</p>
+</dd>
+</dl></div>
+</div>
+<div class="sect3">
+<h4 id="transifex_uploading">9.2.4. Uploading to Transifex</h4>
+<div class="paragraph"><p>There&#8217;s several different ways to upload a finished (or semi-finished)
+translation for a new language to Transifex. The easiest way is to browse to
+the <a href="http://www.transifex.net/projects/p/calcurse/teams/">Translation Teams</a> page
+and request the addition of a new team.</p></div>
+<div class="paragraph"><p>As soon as we accepted your request, you will be able to upload your <strong>po</strong> file
+on the
+<a href="http://www.transifex.net/projects/p/calcurse/resource/calcursepot/">calcurse
+resource page</a> by clicking the <strong>Add translation</strong> button at the bottom.</p></div>
+</div>
+<div class="sect3">
+<h4 id="_using_transifex_client">9.2.5. Using transifex-client</h4>
+<div class="paragraph"><p>You can also use a command line client to submit translations instead of having
+to use the web interface every time you want to submit an updated version. If
+you have a recent version of <code>setuptools</code> installed, you can get the CLI client
+by issuing the following command:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ easy_install -U transifex-client</code></pre>
+</div></div>
+<div class="paragraph"><p>Alternatively, you can get the source code of transifex-client at
+<a href="http://pypi.python.org/pypi/transifex-client">http://pypi.python.org/pypi/transifex-client</a>.</p></div>
+<div class="paragraph"><p>After you downloaded and installed the client, run the following commands in
+the calcurse source directory to checkout the translation resources of
+<strong>calcurse</strong>:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ tx pull -a</code></pre>
+</div></div>
+<div class="paragraph"><p>To submit changes back to the server, use:</p></div>
+<div class="listingblock">
+<div class="content">
+<pre><code>$ tx push -r calcurse.calcursepot -t -l &lt;locale&gt;</code></pre>
+</div></div>
+<div class="paragraph"><p>For more details, read up on <code>transifex-client</code> usage at the
+<a href="http://help.transifex.net/user-guide/client/">The Transifex Command-line Client
+v0.4</a> section of the <a href="http://help.transifex.net/">Transifex documentation</a>.</p></div>
+</div>
+<div class="sect3">
+<h4 id="transifex_webui">9.2.6. Using the Transifex web UI</h4>
+<div class="paragraph"><p>As an alternative to editing <strong>po</strong> files, there is a web-based interface that
+can be used to create and update translations. After having signed up and
+created a new translation team (see <a href="#transifex_uploading">Uploading to Transifex</a> on how to do that), click the <strong>Add translation</strong> button at the
+bottom on the
+<a href="http://www.transifex.net/projects/p/calcurse/resource/calcursepot/">calcurse
+resource page</a>, select the language you&#8217;d like to translate and choose
+<strong>Translate Online</strong>.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links">10. Links</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This section contains links and references that may be of interest to you.</p></div>
+<div class="sect2">
+<h3 id="_calcurse_homepage">10.1. calcurse homepage</h3>
+<div class="paragraph"><p>The <code>calcurse</code> homepage can be found at <a href="http://calcurse.org">http://calcurse.org</a></p></div>
+</div>
+<div class="sect2">
+<h3 id="_calcurse_announce_list">10.2. calcurse announce list</h3>
+<div class="paragraph"><p>If you are interested in the project and want to be warned when a new release
+comes out, you can subscribe to the <code>calcurse</code> announce list. In doing so, you
+will receive an email as soon as a new feature appears in <code>calcurse</code>.</p></div>
+<div class="paragraph"><p>To subscribe to this list, send a message to <strong>announce+subscribe .at. calcurse
+.dot. org</strong> with "subscribe" in the subject field.</p></div>
+</div>
+<div class="sect2">
+<h3 id="links_others">10.3. Other links</h3>
+<div class="paragraph"><p>You may want to look at the ical format specification (rfc2445) at:
+<a href="http://tools.ietf.org/html/rfc2445">http://tools.ietf.org/html/rfc2445</a></p></div>
+<div class="paragraph"><p>The pcal project page can be found at: <a href="http://pcal.sourceforge.net/">http://pcal.sourceforge.net/</a></p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_thanks">11. Thanks</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Its time now to thank other people without whom this program would not exist!
+So here is a list of contributing persons I would like to thank :</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Alex for its patches, help and advices with <code>C</code> programming
+</p>
+</li>
+<li>
+<p>
+Gwen for testing and general discussions about how to improve <code>calcurse</code>
+</p>
+</li>
+<li>
+<p>
+Herbert for packaging <code>calcurse</code> for FreeBSD
+</p>
+</li>
+<li>
+<p>
+Zul for packaging <code>calcurse</code> for NetBSD
+</p>
+</li>
+<li>
+<p>
+Wain, Steffen and Ronald for packaging <code>calcurse</code> for Archlinux
+</p>
+</li>
+<li>
+<p>
+Kevin, Ryan, and fEnIo for packaging <code>calcurse</code> for Debian and Ubuntu
+</p>
+</li>
+<li>
+<p>
+Pascal for packaging <code>calcurse</code> for Slackware
+</p>
+</li>
+<li>
+<p>
+Alexandre and Markus for packaging <code>calcurse</code> for Mac OsX and Darwin
+</p>
+</li>
+<li>
+<p>
+Igor for packaging <code>calcurse</code> for ALT Linux
+</p>
+</li>
+<li>
+<p>
+Joel for its calendar script which inspired <code>calcurse</code> calendar view
+</p>
+</li>
+<li>
+<p>
+Jeremy Roon for the Dutch translation
+</p>
+</li>
+<li>
+<p>
+Frédéric Culot, Toucouch, Erik Saule, Stéphane Aulery
+  and Baptiste Jonglez for the French translation
+</p>
+</li>
+<li>
+<p>
+Michael Schulz, Chris M., Benjamin Moeller and Lukas Fleischer for the German
+  translation
+</p>
+</li>
+<li>
+<p>
+Rafael Ferreira for the Portuguese (Brazil) translation
+</p>
+</li>
+<li>
+<p>
+Aleksey Mechonoshin for the Russian translation
+</p>
+</li>
+<li>
+<p>
+Jose Lopez for the Spanish translation
+</p>
+</li>
+<li>
+<p>
+Tony for its patch which helped improving the recur_item_inday() function,
+  and for implementing the date format configuration options
+</p>
+</li>
+<li>
+<p>
+Erik Saule for its patch implementing the <code>-N</code>, <code>-s</code>, <code>-S</code>, <code>-r</code> and <code>-D</code>
+  flags
+</p>
+</li>
+<li>
+<p>
+people who write softwares I like and which inspired me, especially :
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+<code>vim</code> for the displacement keys
+</p>
+</li>
+<li>
+<p>
+<code>orpheus</code> and <code>abook</code> for documentation
+</p>
+</li>
+<li>
+<p>
+<code>pine</code> and <code>aptitude</code> for the text user interface
+</p>
+</li>
+<li>
+<p>
+<code>tmux</code> for coding style
+</p>
+</li>
+</ul></div>
+</li>
+</ul></div>
+<div class="paragraph"><p>And last, many many thanks to all of the <code>calcurse</code> users who sent me their
+feedback.</p></div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2016-10-30 12:08:08 CET
+</div>
+</div>
+</body>
+</html>

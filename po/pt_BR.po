@@ -1,0 +1,1630 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR calcurse Development Team <misc@calcurse.org>
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2012-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: calcurse\n"
+"Report-Msgid-Bugs-To: bugs@calcurse.org\n"
+"POT-Creation-Date: 2016-10-10 16:48+0200\n"
+"PO-Revision-Date: 2016-04-02 06:45+0000\n"
+"Last-Translator: Lukas Fleischer <transifex@cryptocrack.de>\n"
+"Language-Team: Portuguese (Brazil) (http://www.transifex.com/lfleischer/"
+"calcurse/language/pt_BR/)\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "null pointer"
+msgstr "ponteiro nulo"
+
+msgid "date error in appointment"
+msgstr "erro de data no agendamento"
+
+msgid "no such appointment"
+msgstr "agendamento inexistente"
+
+msgid ""
+"usage: calcurse [--daemon|-F|-G|-g|-i<file>|-Q|--status|-x[<format>]]\n"
+"                [-c<file>] [-D<path>] [-h] [-q] [--read-only] [-v]\n"
+"                [--filter-*] [--format-*]"
+msgstr ""
+
+msgid "Try `calcurse -h` for more information."
+msgstr ""
+
+#, c-format
+msgid "calcurse %s -- text-based organizer\n"
+msgstr ""
+
+msgid "Copyright (c) 2004-2016 calcurse Development Team."
+msgstr ""
+
+msgid "This is free software; see the source for copying conditions."
+msgstr ""
+
+msgid "Operations in non-interactive mode:"
+msgstr ""
+
+msgid "  -F, --filter  Read items, filter them, and write them back"
+msgstr ""
+
+msgid "  -G, --grep    Grep items from the data files"
+msgstr ""
+
+msgid "  -Q, --query   Print items in a given query range"
+msgstr ""
+
+msgid ""
+"Note that -F, -G and -Q can be combined with filter options --filter-*\n"
+"and formatting options --format-*. Consult the man page for details."
+msgstr ""
+
+msgid "Miscellaneous:"
+msgstr ""
+
+msgid "  -c, --calendar <file>   Specify the calendar data file to use"
+msgstr ""
+
+msgid "  --daemon                Run notification daemon in the background"
+msgstr ""
+
+msgid "  -D, --directory <path>  Specify the data directory to use"
+msgstr ""
+
+msgid "  -g, --gc                Run the garbage collector and exit"
+msgstr ""
+
+msgid "  -h, --help              Show this help text and exit"
+msgstr ""
+
+msgid "  -i, --import <file>     Import iCal data from a file"
+msgstr ""
+
+msgid "  -q, --quiet             Do not show system dialogs"
+msgstr ""
+
+msgid "  --read-only             Do not save configuration or data files"
+msgstr ""
+
+msgid "  --status                Display the status of running instances"
+msgstr ""
+
+msgid "  -v, --version           Show version information and exit"
+msgstr ""
+
+msgid "  -x, --export [<format>] Export items, valid formats: ical, pcal"
+msgstr ""
+
+msgid ""
+"For more information, type '?' from within calcurse, or read the manpage."
+msgstr ""
+
+msgid "Submit feature requests and suggestions to <misc@calcurse.org>."
+msgstr ""
+
+msgid "Submit bug reports to <bugs@calcurse.org>."
+msgstr ""
+
+#, c-format
+msgid ""
+"Error: both calcurse (pid: %d) and its daemon (pid: %d)\n"
+"seem to be running at the same time!\n"
+"Please check manually and restart calcurse.\n"
+msgstr ""
+"Erro: ambos calcurse (pid: %d) e seu daemon (pid: %d)\n"
+"parecem estar em execução simultaneamente!\n"
+"Favor verifique manualmente e reinicie calcurse.\n"
+
+#, c-format
+msgid "calcurse is running (pid %d)\n"
+msgstr "calcurse está em execução (pid %d)\n"
+
+#, c-format
+msgid "calcurse is running in background (pid %d)\n"
+msgstr "calcurse está em execução em plano de fundo (pid %d)\n"
+
+msgid "calcurse is not running\n"
+msgstr "calcurse não está em execução\n"
+
+msgid "completed tasks:\n"
+msgstr "tarefas finalizadas:\n"
+
+msgid "to do:\n"
+msgstr "tarefa:\n"
+
+msgid "next appointment:\n"
+msgstr "próximo agendamento:\n"
+
+#, c-format
+msgid "invalid date: %s"
+msgstr ""
+
+#, c-format
+msgid "invalid range: %s"
+msgstr ""
+
+#, c-format
+msgid "invalid priority: %s"
+msgstr ""
+
+#, c-format
+msgid "invalid export format: %s"
+msgstr ""
+
+msgid "invalid filter mask"
+msgstr ""
+
+msgid "cannot handle more than one regular expression"
+msgstr ""
+
+#, c-format
+msgid "could not compile regular expression: %s"
+msgstr ""
+
+#, c-format
+msgid "invalid date range: %s"
+msgstr ""
+
+msgid "invalid argument combination"
+msgstr ""
+
+msgid "cannot specify a range and an end date"
+msgstr ""
+
+msgid "Unable to find documentation."
+msgstr ""
+
+msgid "Export to (i)cal or (p)cal format?"
+msgstr "Exportar para o formato (i)cal ou para (p)cal?"
+
+msgid "[ip]"
+msgstr "[ip]"
+
+msgid "Do you really want to quit?"
+msgstr "Tem certeza que deseja sair?"
+
+msgid "Command:"
+msgstr "Comando:"
+
+#, c-format
+msgid "Help topic does not exist: %s"
+msgstr "Tópico de ajuda não existe: %s"
+
+#, c-format
+msgid "No such command: %s"
+msgstr "Comando inexistente: %s"
+
+msgid "unknown color"
+msgstr "cor desconhecida"
+
+msgid "failed to open configuration file"
+msgstr "falha na abertura do arquivo de configuração"
+
+#, c-format
+msgid "invalid configuration directive: \"%s\""
+msgstr "diretiva de configuração inválida: \"%s\""
+
+msgid ""
+"Pre-3.0.0 configuration file format detected, please upgrade running "
+"`calcurse-upgrade`."
+msgstr ""
+"Formato de arquivo de configuração pré-3.0.0 detectado. Favor, atualize com "
+"\"calcurse-upgrade\"."
+
+#, c-format
+msgid "configuration variable unknown: \"%s\""
+msgstr "variável de configuração desconhecida: \"%s\""
+
+#, c-format
+msgid "wrong configuration variable format for \"%s\""
+msgstr "formato incorreto de variável de configuração para \"%s\""
+
+msgid "layout configuration"
+msgstr "Configuração de layout"
+
+msgid "Foreground"
+msgstr "Primeiro plano"
+
+msgid "Background"
+msgstr "Plano de fundo"
+
+msgid "(terminal's default)"
+msgstr "(padrão do terminal)"
+
+msgid "color theme"
+msgstr "Tema de Cor"
+
+msgid "(if set to YES, compact panels are used)"
+msgstr "(se definido para SIM, painéis compactos são usados) "
+
+msgid "Calendar"
+msgstr "Calendário"
+
+msgid "Appointments"
+msgstr "Agendamentos"
+
+msgid "TODO"
+msgstr "TAREFA"
+
+msgid "(specifies the panel that is selected by default)"
+msgstr "(especifica o painel que fica selecionado por padrão)"
+
+msgid "(if set to YES, automatic save is done when quitting)"
+msgstr ""
+"(se definida como SIM, salvamento automático será feito quando estiver de "
+"saída)"
+
+msgid "(run the garbage collector when quitting)"
+msgstr "(executa o coletor de lixo ao sair)"
+
+msgid "(if not null, automatically save data every 'periodic_save' minutes)"
+msgstr ""
+"(se não nulo, automaticamente salva os dados a cada \"periodic_save\" "
+"minutos)"
+
+msgid "(if set to YES, confirmation is required before quitting)"
+msgstr "(se definida como SIM, uma confirmação será necessária antes de sair)"
+
+msgid "(if set to YES, confirmation is required before deleting an event)"
+msgstr ""
+"(se definida como SIM, uma confirmação será necessária antes da exclusão de "
+"um evento)"
+
+msgid "(if set to YES, messages about loaded and saved data will be displayed)"
+msgstr ""
+"(se definida como SIM, mensagens sobre dados carregados e salvados serão "
+"exibidos)"
+
+msgid "(if set to YES, progress bar will be displayed when saving data)"
+msgstr ""
+"(se definida como SIM, barra de progresso será exibida durante o salvamento "
+"dos dados)"
+
+msgid "Monday"
+msgstr "Segunda-feira"
+
+msgid "Sunday"
+msgstr "Domingo"
+
+msgid "(specifies the first day of week in the calendar view)"
+msgstr "(especifica o primeiro dia da semana na visão de calendário)"
+
+msgid "(Format of the date to be displayed in non-interactive mode)"
+msgstr "(formato da data a ser exibido no modo não interativo)"
+
+msgid "(Format to be used when entering a date: "
+msgstr "(formato a ser usado ao informar uma data: "
+
+msgid "Enter an option number to change its value"
+msgstr "Entre com o número de uma opção para alterar seu valor"
+
+msgid "(Press '^P' or '^N' to move up or down, 'Q' to quit)"
+msgstr ""
+"(Pressione \"^P\" ou \"^N\" para mover para cima ou para baixo, \"Q\" para "
+"sair)"
+
+msgid "Enter the date format (see 'man 3 strftime' for possible formats) "
+msgstr ""
+"Entre com o formato da data (veja \"man 3 strftime\" para formatos "
+"possíveis) "
+
+msgid "Enter the date format: "
+msgstr "Entre com formato da data: "
+
+msgid "Enter the delay, in minutes, between automatic saves (0 to disable) "
+msgstr ""
+"Entre com a distância, em minutos, entre salvamentos (0 = desabilitar) "
+
+msgid "general options"
+msgstr "Opções Gerais"
+
+msgid "Undefined option!"
+msgstr "Opção indefinida!"
+
+msgid "undefined"
+msgstr "indefinida"
+
+msgid "keys configuration"
+msgstr "Configuração das Teclas"
+
+msgid "Press the key you want to assign to:"
+msgstr "Pressione a tecla que você quer designar para:"
+
+msgid "This key is not yet recognized by calcurse, please choose another one."
+msgstr "Essa tecla não é reconhecida ainda pelo calcurse, favor escolha outra."
+
+#, c-format
+msgid "This key is already in use for %s, please choose another one."
+msgstr "Essa tecla está sendo usada por %s, favor escolha outra."
+
+msgid "Some actions do not have any associated key bindings!"
+msgstr "Algumas ações não têm teclas de atalho associadas!"
+
+msgid ""
+"Sorry, colors are not supported by your terminal\n"
+"(Press [ENTER] to continue)"
+msgstr ""
+"Sinto muito, cores não são suportadas em seu terminal\n"
+"(Pressione [Enter] para continuar)"
+
+msgid "unknown item type"
+msgstr "tipo de item desconhecido"
+
+msgid "Event:"
+msgstr "Evento:"
+
+msgid "Appointment:"
+msgstr "Agendamento:"
+
+#, c-format
+msgid "Could not stop daemon properly: %s\n"
+msgstr "Não foi possível parar o daemon corretamente: %s\n"
+
+#, c-format
+msgid "terminated at %s with signal %d\n"
+msgstr "Terminado em %s com sinal %d\n"
+
+#, c-format
+msgid "Could not remove daemon lock file: %s\n"
+msgstr "Não foi possível excluir o arquivo de trava do daemon: %s\n"
+
+#, c-format
+msgid "Could not fork: %s\n"
+msgstr "Não foi possível fazer bifurcação: %s\n"
+
+#, c-format
+msgid "Could not detach from the controlling terminal: %s\n"
+msgstr "Não foi possível desanexar do terminal de controle: %s\n"
+
+#, c-format
+msgid "Could not change working directory: %s\n"
+msgstr "Não foi possível alterar o diretório de trabalho: %s\n"
+
+msgid "Cannot daemonize, aborting\n"
+msgstr "Não foi possível executar em daemon, abortando\n"
+
+msgid "Could not set lock file\n"
+msgstr "Não foi possível definir arquivo de trava\n"
+
+#, c-format
+msgid "Could not access \"%s\": %s\n"
+msgstr "Não foi possível acessar \"%s\": %s\n"
+
+#, c-format
+msgid "started at %s\n"
+msgstr "Iniciado em %s\n"
+
+msgid "error loading next appointment\n"
+msgstr "erro no carregamento do agendamento seguinte\n"
+
+#, c-format
+msgid "launching notification at %s for: \"%s\"\n"
+msgstr "Iniciando notificação em %s para : \"%s\"\n"
+
+msgid "error while sending notification\n"
+msgstr "Erro no envio de notificação\n"
+
+#, c-format
+msgid "sleeping at %s for %d second\n"
+msgid_plural "sleeping at %s for %d seconds\n"
+msgstr[0] "Dormir em %s por %d segundo\n"
+msgstr[1] "Dormir em %s por %d segundos\n"
+
+#, c-format
+msgid "awakened at %s\n"
+msgstr "Acordou em %s\n"
+
+#, c-format
+msgid "Could not stop calcurse daemon: %s\n"
+msgstr "Não foi possível parar o daemon do calcurse: %s\n"
+
+msgid "date error in event"
+msgstr "erro na data em evento"
+
+msgid "date error in the event\n"
+msgstr "erro de data no evento\n"
+
+msgid "Internal error: line too long"
+msgstr "Erro interno: linha muito comprida"
+
+msgid "out of memory"
+msgstr "memória insuficiente"
+
+msgid "unknown ical type"
+msgstr "tipo de ical desconhecido"
+
+msgid "recurrence rule malformed."
+msgstr "regra de recorrência mal-formulada."
+
+msgid "recurrence frequence not found."
+msgstr "frequência de recorrência não encontrada."
+
+msgid "recurrence frequence not recognized."
+msgstr "frequência de recorrência não reconhecida."
+
+msgid "recurrence exception dates malformed."
+msgstr "Exceção de datas de recorrência mal-formulada."
+
+msgid "description malformed."
+msgstr "descrição mal-formulada."
+
+msgid "could not get entire item description."
+msgstr "não foi possível adquirir a descrição completa do item."
+
+msgid "could not retrieve item summary."
+msgstr "não foi possível adquirir sumário do item."
+
+msgid "item start date is not defined."
+msgstr ""
+
+msgid "item has a negative duration."
+msgstr "item tem uma duração negativa."
+
+msgid "item could not be identified."
+msgstr "item não pôde ser identificado."
+
+msgid "event start time malformed."
+msgstr ""
+
+msgid "could not retrieve event start time."
+msgstr "não foi possível adquirir hora de início do evento."
+
+msgid "event end time malformed."
+msgstr ""
+
+msgid "could not retrieve event end time."
+msgstr "não foi possível adquirir hora de término do evento."
+
+msgid "item duration malformed."
+msgstr "duração de item mal-formulada."
+
+msgid "The ical file seems to be malformed. The end of item was not found."
+msgstr ""
+"O arquivo ical parece estar mal-formulada. O fim do item não foi encontrado."
+
+msgid "item priority is invalid (must be between 0 and 9)."
+msgstr ""
+
+msgid "Warning: ical header malformed or wrong version number. Aborting..."
+msgstr ""
+"Aviso: cabeçalho ical mal-formulado ou número de versão errado. Abortando..."
+
+msgid "Saving..."
+msgstr "Salvando..."
+
+msgid "Loading..."
+msgstr "Carregando..."
+
+msgid "Exporting..."
+msgstr "Exportando..."
+
+msgid "Internal error while displaying progress bar"
+msgstr "Erro interno enquanto exibia barra de progresso"
+
+msgid "Choose the file used to export calcurse data:"
+msgstr "Escolha o arquivo para o qual serão exportados os dados do calcurse:"
+
+msgid "The file cannot be accessed, please enter another file name."
+msgstr ""
+"O arquivo não pode ser acessado. Por favor, insira outro nome de arquivo."
+
+msgid "Press [ENTER] to continue."
+msgstr "Pressione [ENTER] para continuar."
+
+#, c-format
+msgid "Failed to open \"%s\", - %s\n"
+msgstr "Falha na abertura de \"%s\", - %s\n"
+
+msgid "Failed to build message\n"
+msgstr "Falha na criação da mensagem\n"
+
+#, c-format
+msgid "Failed to print message \"%s\"\n"
+msgstr "Falha na exibição da mensagem \"%s\"\n"
+
+#, c-format
+msgid "Failed to close \"%s\" - %s\n"
+msgstr "Falha no fechamento de \"%s\" - %s\n"
+
+#, c-format
+msgid "%s does not exist"
+msgstr ""
+
+msgid "Problems accessing data file ..."
+msgstr "Problemas no acesso do arquivo de dados..."
+
+msgid "The data files were successfully saved"
+msgstr "Os arquivos de dados foram salvos com sucesso"
+
+msgid "Press [ENTER] to continue"
+msgstr "Pressione [ENTER] para continuar"
+
+msgid "failed to open appointment file"
+msgstr "falha na abertura do arquivo de agendamento"
+
+msgid "syntax error in the item date"
+msgstr "erro de sintaxe no item data"
+
+msgid "no event nor appointment found"
+msgstr "nenhum evento nem agendamento encontrado"
+
+msgid "syntax error in item time or duration"
+msgstr "erro de sintaxe no horário ou duração do item"
+
+msgid "syntax error in item identifier"
+msgstr "erro de sintaxe no identificador do item"
+
+msgid "wrong format in the appointment or event"
+msgstr "formato errado no agendamento ou evento"
+
+msgid "syntax error in item repetition"
+msgstr "erro de sintaxe na repetição do item"
+
+msgid "failed to open todo file"
+msgstr "falha na abertura do arquivo de tarefas"
+
+msgid "The data files were reloaded successfully"
+msgstr "Os arquivos de dados foram recarregados com sucesso"
+
+msgid "There are unsaved modifications:"
+msgstr "Há modificações não salvas:"
+
+msgid "(d)iscard"
+msgstr "(d)escartar"
+
+msgid "(m)erge"
+msgstr "(m)esclar"
+
+msgid "(k)eep and cancel"
+msgstr "manter e (c)cancelar"
+
+msgid "[dmk]"
+msgstr "[dmc]"
+
+msgid "failed to open key file"
+msgstr "falha na abertura do arquivo de teclas"
+
+msgid ""
+"\n"
+"Too many errors while reading configuration file!\n"
+"Please backup your keys file, remove it from directory, and launch calcurse "
+"again.\n"
+msgstr ""
+"\n"
+"Muitos erros de leitura do arquivo de configuração!\n"
+"Favor faça backup de seus arquivos de teclas, exclua-o de seu diretório e "
+"carregue calcurse novamente.\n"
+
+msgid "Could not read key label"
+msgstr "Não foi possível ler o rótulo de tecla"
+
+msgid "Key label not recognized"
+msgstr "Rótulo de tecla não reconhecida"
+
+#, c-format
+msgid "Error reading key: \"%s\""
+msgstr "Erro na leitura da tecla: \"%s\""
+
+#, c-format
+msgid "\"%s\" assigned multiple times!"
+msgstr "\"%s\" alocada múltiplas vezes!"
+
+msgid "There were some errors when loading keys file, see log file?"
+msgstr ""
+"Ocorreram alguns erros ao carregar o arquivo de teclas; ver arquivo de log?"
+
+msgid "Too many errors while reading keys file, aborting..."
+msgstr "Erros demais na leitura do arquivo de chaves, abortando..."
+
+#, c-format
+msgid "FATAL ERROR: could not create %s: %s\n"
+msgstr "ERRO FATAL: não foi possível criar %s: %s\n"
+
+msgid "Welcome to Calcurse. Missing data files were created."
+msgstr ""
+"Bem-vindo ao Calcurse. Arquivos de dados não encontrados foram criados."
+
+msgid "Data files found. Data will be loaded now."
+msgstr "Arquivos de dados encontrados. Os dados serão carregados agora."
+
+msgid "The data were successfully exported"
+msgstr "Os dados foram exportados com sucesso"
+
+msgid "unknown export type"
+msgstr "tipo de exportação desconhecido"
+
+msgid "wrong export mode"
+msgstr "modo de exportação errado"
+
+msgid "Enter the file name to import data from:"
+msgstr "Entre com o nome do arquivo de onde serão importados os dados:"
+
+#, c-format
+msgid "Import process report: %04d lines read"
+msgstr "relatório do processo de importação: %04d linhas lidas"
+
+msgid "unknown import type"
+msgstr "tipo de importação desconhecida"
+
+msgid "FATAL ERROR: the input file cannot be accessed, Aborting..."
+msgstr "ERRO FATAL: o arquivo de entrada não pode ser acessado. Abortando..."
+
+msgid "FATAL ERROR: wrong import mode"
+msgstr "ERRO FATAL: modo de importação errado"
+
+#, c-format
+msgid "%d app"
+msgid_plural "%d apps"
+msgstr[0] "%d agend."
+msgstr[1] "%d agends."
+
+#, c-format
+msgid "%d event"
+msgid_plural "%d events"
+msgstr[0] "%d evento"
+msgstr[1] "%d eventos"
+
+#, c-format
+msgid "%d todo"
+msgid_plural "%d todos"
+msgstr[0] "%d tarefa"
+msgstr[1] "%d tarefas"
+
+#, c-format
+msgid "%d skipped"
+msgstr "%d ignorado(s)"
+
+msgid "Some items could not be imported, see log file?"
+msgstr "Alguns itens não puderam ser importados; ver arquivo de log?"
+
+msgid "Warning: could not open temporary log file, Aborting..."
+msgstr ""
+"Aviso: não foi possível abrir o arquivo temporário de log. Abortando..."
+
+msgid "Warning: could not create temporary log file, Aborting..."
+msgstr "Aviso: não foi possível criar arquivo temporário de log. Abortando..."
+
+msgid "No log file to display!"
+msgstr "Nenhum arquivo de log para ser exibido!"
+
+#, c-format
+msgid "Warning: could not erase temporary log file %s, Aborting..."
+msgstr ""
+"Aviso: não foi possível apagar o arquivo temporário de log %s. Abortando..."
+
+msgid "Invalid delay"
+msgstr "Atraso inválido"
+
+#, c-format
+msgid ""
+"\n"
+"WARNING: it seems that another calcurse instance is already running.\n"
+"If this is not the case, please remove the following lock file: \n"
+"\"%s\"\n"
+"and restart calcurse.\n"
+msgstr ""
+"\n"
+"AVISO: para que outra instância de calcurse já está em execução.\n"
+"Se este não é o caso, favor excluir o seguinte arquivo de trava: \n"
+"\"%s\"\n"
+"e reinicie calcurse.\n"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Select"
+msgstr "Selecionar"
+
+msgid "Credits"
+msgstr "Créditos"
+
+msgid "Help"
+msgstr "Ajuda"
+
+msgid "Quit"
+msgstr "Sair"
+
+msgid "Save"
+msgstr "Salvar"
+
+msgid "Reload"
+msgstr "Recarregar"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Paste"
+msgstr "Colar"
+
+msgid "Chg Win"
+msgstr "MudarJan"
+
+msgid "Import"
+msgstr "Importar"
+
+msgid "Export"
+msgstr "Exportar"
+
+msgid "Go to"
+msgstr "IrPara"
+
+msgid "OtherCmd"
+msgstr "OutroCmd"
+
+msgid "Config"
+msgstr "Config"
+
+msgid "Redraw"
+msgstr "Redesenhar"
+
+msgid "Add Appt"
+msgstr "AdicAgend"
+
+msgid "Add Todo"
+msgstr "AdiTarefa"
+
+msgid "-1 Day"
+msgstr "-1 Dia"
+
+msgid "+1 Day"
+msgstr "+1 Dia"
+
+msgid "-1 Week"
+msgstr "-1 Semana"
+
+msgid "+1 Week"
+msgstr "+1 Semana"
+
+msgid "-1 Month"
+msgstr "-1 Mês"
+
+msgid "+1 Month"
+msgstr "+1 Mês"
+
+msgid "-1 Year"
+msgstr "-1 Ano"
+
+msgid "+1 Year"
+msgstr "+1 Ano"
+
+msgid "Nxt View"
+msgstr "Visão Seg"
+
+msgid "Prv View"
+msgstr "Visão Ant"
+
+msgid "Today"
+msgstr "Hoje"
+
+msgid "Command"
+msgstr "Comando"
+
+msgid "Right"
+msgstr "Direita"
+
+msgid "Left"
+msgstr "Esquerda"
+
+msgid "Down"
+msgstr "Baixo"
+
+msgid "Up"
+msgstr "Cima"
+
+msgid "beg Week"
+msgstr "IniSemana"
+
+msgid "end Week"
+msgstr "FimSemana"
+
+msgid "Add Item"
+msgstr "AdicItem"
+
+msgid "Del Item"
+msgstr "ExclItem"
+
+msgid "Edit Itm"
+msgstr "EditItem"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Pipe"
+msgstr "Redirec."
+
+msgid "Flag Itm"
+msgstr "SinalItem"
+
+msgid "Repeat"
+msgstr "Repetir"
+
+msgid "EditNote"
+msgstr "EditNota"
+
+msgid "ViewNote"
+msgstr "VerNota"
+
+msgid "Prio.+"
+msgstr "Prio.+"
+
+msgid "Prio.-"
+msgstr "Prio.-"
+
+msgid ""
+"#\n"
+"# Calcurse keys configuration file\n"
+"#\n"
+"# This file sets the keybindings used by Calcurse.\n"
+"# Lines beginning with \"#\" are comments, and ignored by Calcurse.\n"
+"# To assign a keybinding to an action, this file must contain a line\n"
+"# with the following syntax:\n"
+"#\n"
+"#        ACTION  KEY1  KEY2  ...  KEYn\n"
+"#\n"
+"# Where ACTION is what will be performed when KEY1, KEY2, ..., or KEYn\n"
+"# will be pressed.\n"
+"#\n"
+"# To define bindings which use the CONTROL key, prefix the key with 'C-'.\n"
+"# The escape, space bar and horizontal Tab key can be specified using\n"
+"# the 'ESC', 'SPC' and 'TAB' keyword, respectively.\n"
+"# Arrow keys can also be specified with the UP, DWN, LFT, RGT keywords.\n"
+"# Last, Home and End keys can be assigned using 'KEY_HOME' and 'KEY_END'\n"
+"# keywords.\n"
+"#\n"
+"# A description of what each ACTION keyword is used for is available\n"
+"# from calcurse online configuration menu.\n"
+msgstr ""
+"#\n"
+"# Calcurse - arquivo de configuração de teclas\n"
+"#\n"
+"# Este arquivo define as teclas de atalhos (keybindings) usadas pelo "
+"Calcurse.\n"
+"# Linhas iniciadas com \"#\" são comentários, e são ignoradas pelo "
+"Calcurse.\n"
+"# Para designar uma tecla de atalho para uma ação, o arquivo deve conter "
+"uma\n"
+"# linha com a seguinte sintaxe:\n"
+"#\n"
+"#        AÇÃO  TECLA1  TECLA2  ...  TECLAn\n"
+"#\n"
+"# Onde AÇÃO é o que será executado quando TECLA1, TECLA2, ..., ou TECLAn\n"
+"# for pressionada.\n"
+"#\n"
+"# Para definir atalhos que usem a tecla CONTROL, insira antes 'C-' na "
+"tecla.\n"
+"# Para as teclas ESC, barra de espaço e Tab horizontal, podem ser# "
+"especificadas as palavras-chave 'ESC', 'SPC' e 'TAB', respectivamente.\n"
+"# Teclas de setas podem também ser especificadas com as palavras-chave UP, "
+"DWN,# LFT e RGT.# Por último, teclas Home e End podem ser designadas usando "
+"as palavras-chave\n"
+"# 'KEY_HOME' e 'KEY_END'.#\n"
+"# Uma descrição do como cada palavra-chave de AÇÃO é está disponível no "
+"menu\n"
+"# de configuração online do calcurse.\n"
+
+msgid "FATAL ERROR: could not create default keys file."
+msgstr "ERRO FATAL: não foi possível criar arquivo de teclas padrões."
+
+msgid "FATAL ERROR: key value out of bounds"
+msgstr "ERRO FATAL: valor da tecla fora dos limites"
+
+msgid "General"
+msgstr "Geral"
+
+msgid "Layout"
+msgstr "Layout"
+
+msgid "Sidebar"
+msgstr "BarraLateral"
+
+msgid "Color"
+msgstr "Cor"
+
+msgid "Notify"
+msgstr "Notificação"
+
+msgid "Keys"
+msgstr "Teclas"
+
+msgid "Unknown"
+msgstr "Desconhecido"
+
+msgid "Cancel the ongoing action."
+msgstr "Cancela a ação em andamento."
+
+msgid "Select the highlighted item."
+msgstr "Seleciona o item realçado."
+
+msgid "Print general information about calcurse's authors, license, etc."
+msgstr "Imprime informações gerais sobre os autores do calcurse, licença, etc."
+
+msgid "Display hints whenever some help screens are available."
+msgstr "Exibe dicas quando algumas telas de ajuda estiverem disponíveis."
+
+msgid "Exit from the current menu, or quit calcurse."
+msgstr "Sai deste menu, ou sai do calcurse."
+
+msgid "Save calcurse data."
+msgstr "Salva dados do calcurse."
+
+msgid "Reload appointments and todo items."
+msgstr "Recarrega agendamentos e lista de tarefas."
+
+msgid "Copy the item that is currently selected."
+msgstr "Copia o item que está selecionado no momento."
+
+msgid "Paste an item at the current position."
+msgstr "Cola um item na posição atual."
+
+msgid "Select next panel in calcurse main screen."
+msgstr "Seleciona o próximo painel na tela principal do calcurse."
+
+msgid "Import data from an external file."
+msgstr "Importa dados a partir de um arquivo externo."
+
+msgid "Export data to a new file format."
+msgstr "Exporta dados para um novo formato de arquivo."
+
+msgid "Select the day to go to."
+msgstr "Seleciona o dia para ir para."
+
+msgid "Show next possible actions inside status bar."
+msgstr "Mostra próximas ações possíveis dentro da barra de status."
+
+msgid "Enter the configuration menu."
+msgstr "Entra no menu de configurações."
+
+msgid "Redraw calcurse's screen."
+msgstr "Redesenha a tela do calcurse."
+
+msgid "Add an appointment, whichever panel is currently selected."
+msgstr ""
+"Adiciona um agendamento, seja qual for o painel atualmente selecionado."
+
+msgid "Add a todo item, whichever panel is currently selected."
+msgstr ""
+"Adiciona um item de tarefa, seja qual for o painel atualmente selecionado."
+
+msgid ""
+"Move to previous day in calendar, whichever panel is currently selected."
+msgstr ""
+"Move para o dia anterior no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid "Move to next day in calendar, whichever panel is currently selected."
+msgstr ""
+"Move para o dia seguinte no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid ""
+"Move to previous week in calendar, whichever panel is currently selected"
+msgstr ""
+"Move para a semana anterior no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid "Move to next week in calendar, whichever panel is currently selected."
+msgstr ""
+"Move para a semana seguinte no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid ""
+"Move to previous month in calendar, whichever panel is currently selected"
+msgstr ""
+"Move para o mês anterior no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid "Move to next month in calendar, whichever panel is currently selected."
+msgstr ""
+"Move para o mês seguinte no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid ""
+"Move to previous year in calendar, whichever panel is currently selected"
+msgstr ""
+"Move para o ano anterior no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid "Move to next year in calendar, whichever panel is currently selected."
+msgstr ""
+"Move para o ano seguinte no calendário, seja qual for o painel atualmente "
+"selecionado."
+
+msgid "Scroll window down (e.g. when displaying text inside a popup window)."
+msgstr ""
+"Rola a tela para baixo (ex: quando exibindo texto em uma janela pop-up)."
+
+msgid "Scroll window up (e.g. when displaying text inside a popup window)."
+msgstr ""
+"Rola a tela para cima (ex: quando exibindo texto em uma janela pop-up)."
+
+msgid "Go to today, whichever panel is selected."
+msgstr "Ir para hoje, seja qual for o painel selecionado."
+
+msgid "Enter command mode."
+msgstr "Entra no modo de comando."
+
+msgid "Move to the right."
+msgstr "Move para a direita."
+
+msgid "Move to the left."
+msgstr "Move para a esquerda."
+
+msgid "Move down."
+msgstr "Move para baixo."
+
+msgid "Move up."
+msgstr "Move para cima."
+
+msgid ""
+"Select the first day of the current week when inside the calendar panel."
+msgstr ""
+"Seleciona o primeiro dia da semana atual quando se está dentro do painel do "
+"calendário."
+
+msgid "Select the last day of the current week when inside the calendar panel."
+msgstr ""
+"Seleciona o último dia da semana atual quando se está dentro do painel do "
+"calendário."
+
+msgid "Add an item to the currently selected panel."
+msgstr "Adiciona um item para o painel atualmente selecionado."
+
+msgid "Delete the currently selected item."
+msgstr "Exclui o item atualmente selecionado."
+
+msgid "Edit the currently seleted item."
+msgstr "Edita o item atualmente selecionado."
+
+msgid "Display the currently selected item inside a popup window."
+msgstr "Exibe o item atualmente selecionado em uma janela pop-up."
+
+msgid "Flag the currently selected item as important."
+msgstr "Sinaliza o item atualmente selecionado como importante."
+
+msgid "Repeat an item"
+msgstr "Repete um item"
+
+msgid "Pipe the currently selected item to an external program."
+msgstr "Redireciona o item selecionado para um programa externo."
+
+msgid "Attach (or edit if one exists) a note to the currently selected item"
+msgstr ""
+"Anexa (ou edita, se já existir) uma nota ao item atualmente selecionado"
+
+msgid "View the note attached to the currently selected item."
+msgstr "Vê a nota anexada ao item atualmente selecionado."
+
+msgid "Raise a task priority inside the todo panel."
+msgstr "Aumenta a prioridade de uma tarefa no painel de tarefas."
+
+msgid "Lower a task priority inside the todo panel."
+msgstr "Reduz a prioridade de uma tarefa no painel de tarefas."
+
+msgid "FATAL ERROR: null file pointer."
+msgstr "ERRO FATAL: ponteiro nulo de arquivo."
+
+#, c-format
+msgid "When adding default key for \"%s\", \"%s\" was already assigned!"
+msgstr "Quando adicionava tecla padrão para  \"%s\", \"%s\" já foi designada!"
+
+msgid "xmalloc: zero size"
+msgstr "xmalloc: tamanho zero"
+
+msgid "xmalloc: out of memory"
+msgstr "xmalloc: memória insuficiente"
+
+msgid "xcalloc: zero size"
+msgstr "xcalloc: tamanho zero"
+
+msgid "xcalloc: overflow"
+msgstr "xcalloc: estouro de capacidade"
+
+msgid "xcalloc: out of memory"
+msgstr "xcalloc: memória insuficiente"
+
+msgid "xrealloc: zero size"
+msgstr "xrealloc: tamanho zero"
+
+msgid "xrealloc: overflow"
+msgstr "xrealloc: estouro de capacidade"
+
+msgid "xrealloc: out of memory"
+msgstr "xrealloc: memória insuficiente"
+
+msgid "could not allocate memory to store block info"
+msgstr "não foi possível alocar memória para armazenar informação do bloco"
+
+msgid "Block not found"
+msgstr "Bloco não encontrado"
+
+#, c-format
+msgid "overflow at %s"
+msgstr "estouro de capacidade em %s"
+
+#, c-format
+msgid "dbg_free: null pointer at %s"
+msgstr "dbg_free: ponteiro nulo em %s"
+
+#, c-format
+msgid "block seems already freed at %s"
+msgstr "bloco parece já estar livre em %s"
+
+#, c-format
+msgid "corrupt block header at %s"
+msgstr "cabeçalho do bloco corrompido em %s"
+
+#, c-format
+msgid "corrupt block end at %s, (end = %u, should be %d)"
+msgstr "final de bloco corrompido em %s, (final = %u, deveria ser %d)"
+
+msgid "---==== MEMORY BLOCK ====----------------\n"
+msgstr "---==== BLOCO DE MEMÓRIA ====-----------\n"
+
+#, c-format
+msgid "            id: %u\n"
+msgstr "            id: %u\n"
+
+#, c-format
+msgid "          size: %u\n"
+msgstr "    tamanho: %u\n"
+
+#, c-format
+msgid "  allocated in: %s\n"
+msgstr "  alocado em: %s\n"
+
+msgid "-----------------------------------------\n"
+msgstr "----------------------------------------\n"
+
+msgid "+------------------------------+\n"
+msgstr "+-----------------------------------------+\n"
+
+msgid "| calcurse memory usage report |\n"
+msgstr "| relatório de uso de memória do calcurse |\n"
+
+#, c-format
+msgid "  number of calls: %u\n"
+msgstr "  número de chamadas: %u\n"
+
+#, c-format
+msgid " allocated blocks: %u\n"
+msgstr " blocos alocados: %u\n"
+
+#, c-format
+msgid "   unfreed blocks: %u\n"
+msgstr "  blocos não livres: %u\n"
+
+#, c-format
+msgid "Warning: could not open %s, Aborting..."
+msgstr "Aviso: não foi possível abrir %s. Abortando..."
+
+msgid "error while launching command: could not fork"
+msgstr "erro durante o lançamento do comando: não foi possível realizar fork"
+
+msgid "error while launching command"
+msgstr "erro durante o lançamento do comando"
+
+msgid "(if set to YES, notify-bar will be displayed)"
+msgstr "(Se definida como SIM, a barra de notificação será exibida)"
+
+msgid "(Format of the date to be displayed inside notify-bar)"
+msgstr "(Formato da data a ser exibida dentro da barra de notificação)"
+
+msgid "(Format of the time to be displayed inside notify-bar)"
+msgstr "(Formato de horário a ser exibido dentro da barra de notificação)"
+
+msgid ""
+"(Warn user if an appointment is within next 'notify-bar_warning' seconds)"
+msgstr ""
+"(Avisa o usuário se um agendamento ocorrerá nos próximos \"notify-bar_warning"
+"\" segundos)"
+
+msgid "(Command used to notify user of an upcoming appointment)"
+msgstr "(Comando usado para notificar usuário de um agendamento próximo)"
+
+msgid "(Notify all appointments instead of flagged ones only)"
+msgstr "(Notifica todos agendamentos ao invés de somente os marcados)"
+
+msgid "(Run in background to get notifications after exiting)"
+msgstr "(Executa em plano de fundo para pegar notificações depois de sair)"
+
+msgid "(Log activity when running in background)"
+msgstr "(Registra atividades quando estiver executando em plano de fundo)"
+
+msgid "Enter the time format (see 'man 3 strftime' for possible formats) "
+msgstr ""
+"Entre com o formato do horário (veja \"man 3 strftime\" para formatos "
+"possíveis) "
+
+msgid "Enter the number of seconds (0 not to be warned before an appointment)"
+msgstr ""
+"Entre com o número de segundos (0 para não ser avisado antes do agendamento)"
+
+msgid "Enter the notification command "
+msgstr "Entre com o comando de notificação "
+
+msgid "notification options"
+msgstr "opções de notificação"
+
+msgid "incoherent repetition type"
+msgstr ""
+"(se definida como SIM, salvamento automático será feito quando estiver de "
+"saída)"
+
+msgid "unknown repetition type"
+msgstr "tipo de repetição desconhecida"
+
+msgid "unknown character"
+msgstr "caractere desconhecido"
+
+msgid "event not found"
+msgstr "evento não encontrado"
+
+msgid "appointment not found"
+msgstr "agendamento não encontrado"
+
+msgid "syntax error in item date"
+msgstr "erro de sintaxe no item data"
+
+msgid "date error in item exception"
+msgstr "erro de data em exceção de item"
+
+#, c-format
+msgid "Could not remove calcurse lock file: %s\n"
+msgstr "Não foi possível excluir arquivo de trava do Calcurse: %s\n"
+
+#, c-format
+msgid "Error setting signal #%d : %s\n"
+msgstr "Erro na definição de sinal #%d : %s\n"
+
+msgid "no note attached"
+msgstr "nenhuma nota anexada"
+
+msgid "no such todo"
+msgstr "tarefa inexistente"
+
+msgid "ERROR setting first day of week"
+msgstr "ERRO na configuração do primeiro dia do mês"
+
+msgid "The day you entered is not valid"
+msgstr ""
+
+#, c-format
+msgid "Enter the day to go to [ENTER for today] : %s"
+msgstr "Insira o dia para ir para [ENTER para hoje] : %s"
+
+#, fuzzy
+msgid "Enter start time ([hh:mm] or [hhmm]) or date:"
+msgstr "Insira o horário início ([hh:mm] ou [hhmm]):"
+
+msgid "Press [Enter] to continue"
+msgstr "Pressione [Enter] para continuar"
+
+msgid "You entered an invalid time, should be [hh:mm] or [hhmm]"
+msgstr "Você inseriu um horário inválido, deveria ser [hh:mm] ou [hhmm]"
+
+msgid "Enter end time ([hh:mm], [hhmm]) or duration ([+hh:mm], [+xxxdxxhxxm]):"
+msgstr ""
+"Insira um horário de término ([hh:mm], [hhmm]) ou duração ([+hh:mm], "
+"[+xxxdxxhxxm]):"
+
+msgid "Invalid time: start time must be before end time!"
+msgstr ""
+"Horário inválido: horário de início deve ser antes do horário de término!"
+
+msgid "Enter the new item description:"
+msgstr "Insira uma descrição para o novo item:"
+
+msgid "Enter the new repetition type:"
+msgstr "Insira o novo tipo de repetição:"
+
+msgid "(d)aily"
+msgstr "(d)iária"
+
+msgid "(w)eekly"
+msgstr "(s)emanal"
+
+msgid "(m)onthly"
+msgstr "(m)ensal"
+
+msgid "(y)early"
+msgstr "(a)nual"
+
+#, c-format
+msgid "(currently using %s)"
+msgstr "(atualmente usando %s)"
+
+msgid "[dwmy]"
+msgstr "[dsma]"
+
+msgid "The frequence you entered is not valid."
+msgstr "A frequência informada não é válida."
+
+msgid "The entered date is not valid."
+msgstr "A data informada não é válida."
+
+#, c-format
+msgid "Possible formats are [%s] or '0' for an endless repetition."
+msgstr "Formatos possíveis são [%s] ou \"0\" para repetição sem fim."
+
+msgid "Enter the new repetition frequence:"
+msgstr "Entre com uma nova frequência de repetição:"
+
+#, c-format
+msgid "Enter end date ([%s]), duration ([+xxwxxd]) or '0':"
+msgstr ""
+
+msgid "Description"
+msgstr "Descrição"
+
+msgid "Repetition"
+msgstr "Repetição"
+
+msgid "Edit: "
+msgstr "Editar: "
+
+msgid "Start time"
+msgstr "Horário de início"
+
+msgid "End time"
+msgstr "Horário de término"
+
+msgid "Move"
+msgstr "Mover"
+
+msgid "Pipe item to external command:"
+msgstr "Redirecionar o item para comando externo:"
+
+msgid "Enter start time ([hh:mm] or [hhmm]), leave blank for an all-day event:"
+msgstr ""
+"Insira o horário de início ([hh:mm] ou [hhmm]); deixe em branco para um "
+"evento de dia inteiro:"
+
+msgid "Enter description:"
+msgstr "Insera uma descrição:"
+
+msgid "You entered an invalid start time, should be [hh:mm] or [hhmm]"
+msgstr ""
+"Você inseriu um horário de início inválido - deveria ser [hh:mm] ou [hhmm]"
+
+msgid ""
+"Invalid end time/duration, should be [hh:mm], [hhmm], [+hh:mm], "
+"[+xxxdxxhxxm] or [+mm]"
+msgstr ""
+"Horário de término/duração inválido, deveria ser [hh:mm], [hhmm], [+hh:mm], "
+"[+xxxdxxhxxm] ou [+mm]"
+
+msgid "Do you really want to delete this item?"
+msgstr "Tem certeza que deseja excluir este item?"
+
+msgid "This item is recurrent. Delete (a)ll occurences or just this (o)ne?"
+msgstr ""
+"Este item é recorrente. Excluir (t)odas as ocorrências ou (s)omente esta?"
+
+msgid "[ao]"
+msgstr "[ts]"
+
+msgid "This item has a note attached to it. Delete (i)tem or just its (n)ote?"
+msgstr ""
+"Este item tem uma anotação anexada a ele. Excluir o (i)tem ou somente sua "
+"(n)ota?"
+
+msgid "[in]"
+msgstr "[in]"
+
+msgid "Enter the repetition type:"
+msgstr "Insira o tipo da repetição:"
+
+msgid "Enter the repetition frequence:"
+msgstr "Insira a frequência de repetição:"
+
+#, c-format
+msgid ""
+"Enter end date ([%s]), duration ([+xxwxxd]) or '0' for endless repetition:"
+msgstr ""
+
+#, c-format
+msgid "Possible formats are [%s], [+xxwxxd] or '0'."
+msgstr ""
+
+msgid "This item is already a repeated one."
+msgstr "Este é um item repetido."
+
+msgid "Sorry, the date you entered is older than the item start time."
+msgstr "Desculpe, a data que foi informou é mais antiga que a data inicial."
+
+msgid "wrong item type"
+msgstr "tipo de item errado"
+
+msgid "Enter the new TODO item:"
+msgstr "Insira o novo item da TAREFA:"
+
+msgid "Enter the TODO priority [0 (none), 1 (highest) - 9 (lowest)]:"
+msgstr ""
+
+msgid "Do you really want to delete this task?"
+msgstr "Tem certeza que deseja excluir esta tarefa?"
+
+msgid "This item has a note attached to it. Delete (t)odo or just its (n)ote?"
+msgstr ""
+"Este item possui uma nota anexada a ele. Excluir a (t)arefa ou somente sua "
+"(n)ota?"
+
+msgid "[tn]"
+msgstr "[tn]"
+
+msgid "Enter the new TODO description:"
+msgstr "Insira a nova descrição da TAREFA:"
+
+msgid "TODO:"
+msgstr "TAREFA:"
+
+msgid "/!\\ INTERNAL ERROR /!\\"
+msgstr "/!\\ ERRO INTERNO /!\\"
+
+msgid "Please report the following bug:"
+msgstr "Por favor, reporte o seguinte erro:"
+
+msgid "[yn]"
+msgstr "[sn]"
+
+msgid "Press any key to continue..."
+msgstr "Pressione qualquer tecla para continuar..."
+
+msgid "failure in mktime"
+msgstr "falha no mktime"
+
+msgid "error in mktime"
+msgstr "erro no mktime"
+
+msgid "yes"
+msgstr "sim"
+
+msgid "no"
+msgstr "não"
+
+msgid "option not defined"
+msgstr "opção não definida"
+
+#, c-format
+msgid "temporary file \"%s\" could not be created"
+msgstr "arquivo temporário \"%s\" não pôde ser criado"
+
+#, c-format
+msgid "Error when closing file at %s"
+msgstr "Erro em fechar arquivo em %s"
+
+msgid "No note file found\n"
+msgstr "Nenhuma nota encontrada\n"
+
+msgid "January"
+msgstr "Janeiro"
+
+msgid "February"
+msgstr "Fevereiro"
+
+msgid "March"
+msgstr "Março"
+
+msgid "April"
+msgstr "Abril"
+
+msgid "May"
+msgstr "Maio"
+
+msgid "June"
+msgstr "Junho"
+
+msgid "July"
+msgstr "Julho"
+
+msgid "August"
+msgstr "Agosto"
+
+msgid "September"
+msgstr "Setembro"
+
+msgid "October"
+msgstr "Outubro"
+
+msgid "November"
+msgstr "Novembro"
+
+msgid "December"
+msgstr "Dezembro"
+
+msgid "Sun"
+msgstr "Dom"
+
+msgid "Mon"
+msgstr "Seg"
+
+msgid "Tue"
+msgstr "Ter"
+
+msgid "Wed"
+msgstr "Qua"
+
+msgid "Thu"
+msgstr "Qui"
+
+msgid "Fri"
+msgstr "Sex"
+
+msgid "Sat"
+msgstr "Sab"
+
+msgid "mm/dd/yyyy"
+msgstr "mm/dd/yyyy"
+
+msgid "dd/mm/yyyy"
+msgstr "dd/mm/yyyy"
+
+msgid "yyyy/mm/dd"
+msgstr "yyyy/mm/dd"
+
+msgid "yyyy-mm-dd"
+msgstr "yyyy-mm-dd"
+
+msgid "unknown panel"
+msgstr "painel desconhecido"
+
+msgid "Usage: calcurse-upgrade [-h|-v|--config <file>]"
+msgstr "Uso:   calcurse-upgrade [-h|-v|--config <arquivo>]"
+
+msgid ""
+"\n"
+"Copyright (c) 2004-2016 calcurse Development Team.\n"
+"This is free software; see the source for copying conditions.\n"
+msgstr ""
+
+msgid "unrecognized option:"
+msgstr "opção não reconhecida:"
+
+msgid "Configuration file not found:"
+msgstr "Arquivo de configuração não encontrado:"
+
+msgid "Pre-3.0.0 configuration file format detected..."
+msgstr "Formato de arquivo de configuração pre-3.0.0 detectado..."
+
+msgid "Create temporary backup of the configuration file..."
+msgstr "cria backup temporário do arquivo de configuração..."
+
+msgid "Old backup file found:"
+msgstr "Arquivo de backup antigo encontrado:"
+
+msgid ""
+"\n"
+"If a previous conversion did not complete, please try to restore your\n"
+"configuration from this backup and then remove the backup file."
+msgstr ""
+"\n"
+"Se uma conversão anterior não completou, favor tente restaurar sua\n"
+"configuração a partir deste backup e, então, exclua o arquivo backup."
+
+msgid "done"
+msgstr "feito"
+
+msgid "Old temporary file found:"
+msgstr "Arquivo temporário antigo encontrado:"
+
+msgid ""
+"\n"
+"If a previous conversion did not complete, please try to remove this file "
+"and\n"
+"start over with a backup of your old configuration file."
+msgstr ""
+"\n"
+"Se uma conversão anterior não completou, favor tente excluir este\n"
+"arquivo e começar do começo com um backup de seu arquivo de\n"
+"configuração antigo."
+
+msgid "Upgrade configuration directives..."
+msgstr "Atualizar diretivas de configuração..."
+
+msgid "Remove temporary backup..."
+msgstr "Excluir backup temporário..."

@@ -1,0 +1,841 @@
+'\" t
+.\"     Title: calcurse
+.\"    Author: [see the "Authors" section]
+.\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
+.\"      Date: 10/30/2016
+.\"    Manual: \ \&
+.\"    Source: \ \&
+.\"  Language: English
+.\"
+.TH "CALCURSE" "1" "10/30/2016" "\ \&" "\ \&"
+.\" -----------------------------------------------------------------
+.\" * Define some portability stuff
+.\" -----------------------------------------------------------------
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.\" http://bugs.debian.org/507673
+.\" http://lists.gnu.org/archive/html/groff/2009-02/msg00013.html
+.\" ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.ie \n(.g .ds Aq \(aq
+.el       .ds Aq '
+.\" -----------------------------------------------------------------
+.\" * set default formatting
+.\" -----------------------------------------------------------------
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.\" -----------------------------------------------------------------
+.\" * MAIN CONTENT STARTS HERE *
+.\" -----------------------------------------------------------------
+.SH "NAME"
+calcurse \- text\-based organizer
+.SH "SYNOPSIS"
+.sp
+.nf
+\fIcalcurse\fR \fB\-Q\fR [options] [\fB\-\-from\fR <date>] [\fB\-\-to\fR <date>|\fB\-\-days\fR <num>]
+\fIcalcurse\fR \fB\-G\fR [options]
+\fIcalcurse\fR \fB\-i\fR<file>
+\fIcalcurse\fR \fB\-x\fR<format>
+\fIcalcurse\fR \fB\-\-gc\fR
+\fIcalcurse\fR \fB\-\-status\fR
+\fIcalcurse\fR \fB\-\-version\fR
+\fIcalcurse\fR \fB\-\-help\fR
+.fi
+.SH "DESCRIPTION"
+.sp
+Calcurse is a text\-based calendar and scheduling application\&. It helps keeping track of events, appointments and everyday tasks\&. A configurable notification system reminds user of upcoming deadlines, and the curses based interface can be customized to suit user needs\&. All of the commands are documented within an online help system\&.
+.SH "OPTIONS"
+.sp
+The following options are supported:
+.PP
+\fB\-a\fR, \fB\-\-appointment\fR
+.RS 4
+Print the appointments and events for the current day and exit\&. Equivalent to
+\fB\-Q \-\-filter\-type cal\fR\&.
+\fINote:\fR
+The calendar from which to read the appointments can be specified using the
+\fB\-c\fR
+flag\&.
+.RE
+.PP
+\fB\-c\fR <file>, \fB\-\-calendar\fR <file>
+.RS 4
+Specify the calendar file to use\&. The default calendar is
+\fB~/\&.calcurse/apts\fR
+(see section
+\fIFILES\fR
+below)\&. This option has precedence over
+\fB\-D\fR\&.
+.RE
+.PP
+\fB\-d\fR <date|num>, \fB\-\-day\fR <date|num>
+.RS 4
+Print the appointments for the given date or for the given number of upcoming days, depending on the argument format\&. Two possible formats are supported:
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+a date (possible formats described below)\&.
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+a number
+\fBn\fR\&.
+.RE
+.sp
+In the first case, the appointment list for the specified date will be returned, while in the second case the appointment list for the
+\fBn\fR
+upcoming days will be returned\&.
+.sp
+As an example, typing
+\fBcalcurse \-d 3\fR
+will display your appointments for today, tomorrow, and the day after tomorrow\&. The first form is equivalent to
+\fB\-Q \-\-filter\-type cal \-\-from <date>\fR, the second form is equivalent to
+\fB\-Q \-\-filter\-type cal \-\-days <num>\fR\&.
+.sp
+\fINote:\fR
+as for the
+\fB\-a\fR
+flag, the calendar from which to read the appointments can be specified using the
+\fB\-c\fR
+flag\&.
+.RE
+.PP
+\fB\-\-daemon\fR
+.RS 4
+Start calcurse in background mode\&. Restart if the daemon was already running\&.
+.RE
+.PP
+\fB\-\-days\fR <num>
+.RS 4
+Specify the length of the range (in days) when used with
+\fB\-Q\fR\&. Cannot be combined with
+\fB\-\-to\fR\&.
+.RE
+.PP
+\fB\-\-export\-uid\fR
+.RS 4
+When exporting items, add the hash of each item to the exported object as an UID property\&.
+.RE
+.PP
+\fB\-D\fR <dir>, \fB\-\-directory\fR <dir>
+.RS 4
+Specify the data directory to use\&. If not specified, the default directory is
+\fB~/\&.calcurse/\fR\&.
+.RE
+.PP
+\fB\-F\fR, \fB\-\-filter\fR
+.RS 4
+Read items from the data files and write them back\&. The filter interface can be used to drop specific items\&. Be careful with this option, specifying a wrong filter might result it data loss! It is highly recommended to test the effect of filters with \-G first\&. See also:
+\fIFilter Options\fR\&.
+.RE
+.PP
+\fB\-\-from\fR <date>
+.RS 4
+Specify the start date of the range when used with
+\fB\-Q\fR\&.
+.RE
+.PP
+\fB\-g\fR, \fB\-\-gc\fR
+.RS 4
+Run the garbage collector for note files and exit\&.
+.RE
+.PP
+\fB\-G\fR, \fB\-\-grep\fR
+.RS 4
+Print appointments and TODO items using the calcurse data file format\&. The filter interface can be used to further restrict the output\&. See also:
+\fIFilter Options\fR\&.
+.RE
+.PP
+\fB\-h\fR, \fB\-\-help\fR
+.RS 4
+Print a short help text describing the supported command\-line options, and exit\&.
+.RE
+.PP
+\fB\-i\fR <file>, \fB\-\-import\fR <file>
+.RS 4
+Import the icalendar data contained in
+\fIfile\fR\&.
+.RE
+.PP
+\fB\-l\fR <num>, \fB\-\-limit\fR <num>
+.RS 4
+Limit the number of results printed to
+\fInum\fR\&.
+.RE
+.PP
+\fB\-\-dump\-imported\fR
+.RS 4
+When importing items, print each newly created object to stdout\&. Format strings can be used to specify which details are printed\&. See also:
+\fIFormatting Options\fR\&.
+.RE
+.PP
+\fB\-n\fR, \fB\-\-next\fR
+.RS 4
+Print the next appointment within upcoming 24 hours and exit\&. The indicated time is the number of hours and minutes left before this appointment\&.
+.sp
+\fINote:\fR
+the calendar from which to read the appointments can be specified using the
+\fB\-c\fR
+flag\&.
+.RE
+.PP
+\fB\-q\fR, \fB\-\-quiet\fR
+.RS 4
+Be quiet\&. Do not show system dialogs\&.
+.RE
+.PP
+\fB\-Q\fR, \fB\-\-query\fR
+.RS 4
+Print all appointments inside a given query range, followed by all TODO items\&. The query range defaults to the current day and can be changed by using the
+\fB\-\-from\fR
+and
+\fB\-\-to\fR
+(or
+\fB\-\-days\fR) parameters\&. The filter interface can be used to further restrict the output\&. See also:
+\fIFilter Options\fR,
+\fIFormatting Options\fR\&.
+.RE
+.PP
+\fB\-r\fR[num], \fB\-\-range\fR[=num]
+.RS 4
+Print events and appointments for the
+\fInum\fR
+number of days and exit\&. If no
+\fInum\fR
+is given, a range of 1 day is considered\&. Equivalent to
+\fB\-Q \-\-filter\-type cal \-\-days <num>\fR\&.
+.RE
+.PP
+\fB\-\-read\-only\fR
+.RS 4
+Don\(cqt save configuration nor appointments/todos\&.
+.sp
+\fIWarning:\fR
+Use this this with care! If you run an interactive calcurse instance in read\-only mode, all changes from this session will be lost without warning!
+.RE
+.PP
+\fB\-s\fR[date], \fB\-\-startday\fR[=date]
+.RS 4
+Print events and appointments from
+\fIdate\fR
+and exit\&. If no
+\fIdate\fR
+is given, the current day is considered\&. Equivalent to
+\fB\-Q \-\-filter\-type cal \-\-from <date>\fR\&.
+.RE
+.PP
+\fB\-S\fR<regex>, \fB\-\-search\fR=<regex>
+.RS 4
+When used with the
+\fB\-a\fR,
+\fB\-d\fR,
+\fB\-r\fR,
+\fB\-s\fR, or
+\fB\-t\fR
+flag, print only the items having a description that matches the given regular expression\&. Equivalent to
+\fB\-Q \-\-filter\-pattern <regex>\fR\&.
+.RE
+.PP
+\fB\-\-status\fR
+.RS 4
+Display the status of running instances of calcurse\&. If calcurse is running, this will tell if the interactive mode was launched or if calcurse is running in background\&. The process pid will also be indicated\&.
+.RE
+.PP
+\fB\-t\fR[num], \fB\-\-todo\fR[=num]
+.RS 4
+Print the
+\fBtodo\fR
+list and exit\&. If the optional number
+\fInum\fR
+is given, then only uncompleted todos having a priority equal to
+\fInum\fR
+will be returned\&. The priority number must be between 1 (highest) and 9 (lowest)\&. It is also possible to specify
+\fB0\fR
+for the priority, in which case only completed tasks will be shown\&. Equivalent to
+\fB\-Q \-\-filter\-type todo\fR, combined with
+\fB\-\-filter\-priority\fR
+and
+\fB\-\-filter\-completed\fR
+or
+\fB\-\-filter\-uncompleted\fR\&.
+.RE
+.PP
+\fB\-\-to\fR <date>
+.RS 4
+Specify the end date of the range when used with
+\fB\-Q\fR\&. Cannot be combined with
+\fB\-\-days\fR\&.
+.RE
+.PP
+\fB\-v\fR, \fB\-\-version\fR
+.RS 4
+Display
+\fBcalcurse\fR
+version and exit\&.
+.RE
+.PP
+\fB\-x\fR[format], \fB\-\-export\fR[=format]
+.RS 4
+Export user data to specified format\&. Events, appointments and todos are converted and echoed to stdout\&. Two possible formats are available:
+\fIical\fR
+and
+\fIpcal\fR\&. If the optional argument
+\fIformat\fR
+is not given, ical format is selected by default\&.
+.sp
+\fINote:\fR
+redirect standard output to export data to a file, by issuing a command such as:
+.sp
+.if n \{\
+.RS 4
+.\}
+.nf
+$ calcurse \-\-export > my_data\&.dat
+.fi
+.if n \{\
+.RE
+.\}
+.RE
+.sp
+\fINote:\fR The \fB\-N\fR option has been removed in calcurse 3\&.0\&.0\&. See the \fIFORMAT STRINGS\fR section on how to print note along with appointments and events\&.
+.SS "Filter Options"
+.sp
+Filters can be used to restrict the set of items which are loaded from the appointments file when using calcurse in non\-interactive mode\&. The following filters are currently supported:
+.PP
+\fB\-\-filter\-hash <pattern>\fR
+.RS 4
+Only include items with a hash starting with the specified pattern\&. The pattern can be inverted by prepending an exclamation mark (\fI!\fR)\&.
+.RE
+.PP
+\fB\-\-filter\-type\fR <type>
+.RS 4
+Ignore any items that do not match the type mask\&. The type mask is a comma\-separated list of valid type descriptions which include
+\fIevent\fR,
+\fIapt\fR,
+\fIrecur\-event\fR,
+\fIrecur\-apt\fR
+and
+\fItodo\fR\&. You can also use
+\fIrecur\fR
+as a shorthand for
+\fIrecur\-event,recur\-apt\fR
+and
+\fIcal\fR
+as a shorthand for
+\fIevent,apt,recur\fR\&.
+.RE
+.PP
+\fB\-\-filter\-pattern\fR <pattern>
+.RS 4
+Ignore any items with a description that does not match the pattern\&. The pattern is interpreted as extended regular expression\&.
+.RE
+.PP
+\fB\-\-filter\-start\-from\fR <date>
+.RS 4
+Ignore any items that start before a given date\&.
+.RE
+.PP
+\fB\-\-filter\-start\-to\fR <date>
+.RS 4
+Ignore any items that start after a given date\&.
+.RE
+.PP
+\fB\-\-filter\-start\-after\fR <date>
+.RS 4
+Only include items that start after a given date\&.
+.RE
+.PP
+\fB\-\-filter\-start\-before\fR <date>
+.RS 4
+Only include items that start before a given date\&.
+.RE
+.PP
+\fB\-\-filter\-start\-range\fR <range>
+.RS 4
+Only include items with a start date that falls within a given range\&. A range consists of a start date and an end date, separated by a comma\&.
+.RE
+.PP
+\fB\-\-filter\-end\-from\fR <date>
+.RS 4
+Ignore any items that end before a given date\&.
+.RE
+.PP
+\fB\-\-filter\-end\-to\fR <date>
+.RS 4
+Ignore any items that end after a given date\&.
+.RE
+.PP
+\fB\-\-filter\-end\-after\fR <date>
+.RS 4
+Only include items that end after a given date\&.
+.RE
+.PP
+\fB\-\-filter\-end\-before\fR <date>
+.RS 4
+Only include items that end before a given date\&.
+.RE
+.PP
+\fB\-\-filter\-end\-range\fR <range>
+.RS 4
+Only include items with an end date that falls within a given range\&. A range consists of a start date and an end date, separated by a comma\&.
+.RE
+.PP
+\fB\-\-filter\-priority\fR <priority>
+.RS 4
+Only include items with a given priority\&.
+.RE
+.PP
+\fB\-\-filter\-completed\fR
+.RS 4
+Only include completed TODO items\&.
+.RE
+.PP
+\fB\-\-filter\-uncompleted\fR
+.RS 4
+Only include uncompleted TODO items\&.
+.RE
+.SS "Formatting Options"
+.PP
+\fB\-\-format\-apt\fR <format>
+.RS 4
+Specify a format to control the output of appointments in non\-interactive mode\&. See the
+\fIFORMAT STRINGS\fR
+section for detailed information on format strings\&.
+.RE
+.PP
+\fB\-\-format\-recur\-apt\fR <format>
+.RS 4
+Specify a format to control the output of recurrent appointments in non\-interactive mode\&. See the
+\fIFORMAT STRINGS\fR
+section for detailed information on format strings\&.
+.RE
+.PP
+\fB\-\-format\-event\fR <format>
+.RS 4
+Specify a format to control the output of events in non\-interactive mode\&. See the
+\fIFORMAT STRINGS\fR
+section for detailed information on format strings\&.
+.RE
+.PP
+\fB\-\-format\-recur\-event\fR <format>
+.RS 4
+Specify a format to control the output of recurrent events in non\-interactive mode\&. See the
+\fIFORMAT STRINGS\fR
+section for detailed information on format strings\&.
+.RE
+.PP
+\fB\-\-format\-todo\fR <format>
+.RS 4
+Specify a format to control the output of todo items in non\-interactive mode\&. See the
+\fIFORMAT STRINGS\fR
+section for detailed information on format strings\&.
+.RE
+.SH "FORMAT STRINGS"
+.sp
+Format strings are composed of printf()\-style format specifiers \(em ordinary characters are copied to stdout without modification\&. Each specifier is introduced by a \fB%\fR and is followed by a character which specifies the field to print\&. The set of available fields depends on the item type\&.
+.SS "Format specifiers for appointments"
+.PP
+\fBs\fR
+.RS 4
+Print the start time of the appointment as UNIX time stamp
+.RE
+.PP
+\fBS\fR
+.RS 4
+Print the start time of the appointment using the
+\fBhh:mm\fR
+format
+.RE
+.PP
+\fBd\fR
+.RS 4
+Print the duration of the appointment in seconds
+.RE
+.PP
+\fBe\fR
+.RS 4
+Print the end time of the appointment as UNIX time stamp
+.RE
+.PP
+\fBE\fR
+.RS 4
+Print the end time of the appointment using the
+\fBhh:mm\fR
+format
+.RE
+.PP
+\fBm\fR
+.RS 4
+Print the description of the item
+.RE
+.PP
+\fBn\fR
+.RS 4
+Print the name of the note file belonging to the item
+.RE
+.PP
+\fBN\fR
+.RS 4
+Print the note belonging to the item
+.RE
+.SS "Format specifiers for events"
+.PP
+\fBm\fR
+.RS 4
+Print the description of the item
+.RE
+.PP
+\fBn\fR
+.RS 4
+Print the name of the note file belonging to the item
+.RE
+.PP
+\fBN\fR
+.RS 4
+Print the note belonging to the item
+.RE
+.SS "Format specifiers for todo items"
+.PP
+\fBp\fR
+.RS 4
+Print the priority of the item
+.RE
+.PP
+\fBm\fR
+.RS 4
+Print the description of the item
+.RE
+.PP
+\fBn\fR
+.RS 4
+Print the name of the note file belonging to the item
+.RE
+.PP
+\fBN\fR
+.RS 4
+Print the note belonging to the item
+.RE
+.SS "Examples"
+.PP
+\fBcalcurse \-r7 \-\-format\-apt=\*(Aq\- %S \-> %E\en\et%m\en%N\*(Aq\fR
+.RS 4
+Print appointments and events for the next seven days\&. Also, print the notes attached to each regular appointment (simulates
+\fB\-N\fR
+for appointments)\&.
+.RE
+.PP
+\fBcalcurse \-r7 \-\-format\-apt=\*(Aq \- %m (%S to %E)\en\*(Aq \-\-format\-recur\-apt=\*(Aq \- %m (%S to %E)\en\*(Aq\fR
+.RS 4
+Print appointments and events for the next seven days and use a custom format for (recurrent) appointments: * \- Some appointment (18:30 to 21:30)*\&.
+.RE
+.PP
+\fBcalcurse \-t \-\-format\-todo \*(Aq(%p) %m\en\*(Aq\fR
+.RS 4
+List all todo items and put parentheses\&around the priority specifiers\&.
+.RE
+.SS "Extended format specifiers"
+.sp
+Extended format specifiers can be used if you want to specify advanced formatting options\&. Extended specifiers are introduced by \fB%(\fR and are terminated by a closing parenthesis (\fB)\fR)\&. The following list includes all short specifiers and corresponding long options:
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBs\fR:
+\fB(start)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBS\fR:
+\fB(start:epoch)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBe\fR:
+\fB(end)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBE\fR:
+\fB(end:epoch)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBd\fR:
+\fB(duration)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBr\fR:
+\fB(remaining)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBm\fR:
+\fB(message)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBn\fR:
+\fB(noteid)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBN\fR:
+\fB(note)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBp\fR:
+\fB(priority)\fR
+.RE
+.sp
+The \fB(start)\fR and \fB(end)\fR specifiers support strftime()\-style extended formatting options that can be used for fine\-grained formatting\&. Additionally, the special formats \fBepoch\fR (which is equivalent to \fB(start:%s)\fR or \fB(end:%s)\fR) and \fBdefault\fR (which is mostly equivalent to \fB(start:%H:%M)\fR or \fB(end:%H:%M)\fR but displays \fB\&.\&.:\&.\&.\fR if the item doesn\(cqt start/end at the current day) are supported\&.
+.sp
+The \fB(remaining)\fR and \fB(duration)\fR specifiers support a subset of the strftime()\-style formatting options, along with two extra qualifiers\&. The supported options are \fB%d\fR, \fB%H\fR, \fB%M\fR and \fB%S\fR, and by default each of these is zero\-padded to two decimal places\&. To avoid the zero\-padding, add \fB\-\fR in front of the formatting option (for example, \fB%\-d\fR)\&. Additionally, the \fBE\fR option will display the total number of time units until the appointment, rather than showing the remaining number of time units modulo the next larger time unit\&. For example, an appointment in 50 hours will show as 02:00 with the formatting string \fB%H:%M\fR, but will show 50:00 with the formatting string \fB%EH:%M\fR\&. Note that if you are combining the \fB\-\fR and \fBE\fR options, the \fB\-\fR must come first\&. The default format for the \fB(remaining)\fR specifier is \fB%EH:%M\fR\&.
+.sp
+There are two additional long format specifiers that do not have any corresponding short options\&. They can be used to print an item\(cqs hash or its internal representation and were designed to be used for scripting:
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fB(hash)\fR
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fB(raw)\fR
+.RE
+.SH "HOOKS"
+.sp
+You can place scripts in $HOME/\&.calcurse/hooks/ to trigger actions at certain events\&. To enable a hook, add a script with one of the following names to this directory\&. Also make sure the scripts are executable\&.
+.PP
+\fBpre\-load\fR
+.RS 4
+Executed before the data files are loaded\&.
+.RE
+.PP
+\fBpost\-load\fR
+.RS 4
+Executed after the data files are saved\&.
+.RE
+.PP
+\fBpre\-save\fR
+.RS 4
+Executed before the data files are loaded\&.
+.RE
+.PP
+\fBpost\-save\fR
+.RS 4
+Executed after the data files are saved\&.
+.RE
+.sp
+Some examples can be found in the contrib/hooks/ directory of the calcurse source tree\&.
+.SH "NOTES"
+.sp
+Calcurse interface contains three different panels (calendar, appointment list, and todo list) on which you can perform different actions\&. All the possible actions, together with their associated keystrokes, are listed on the status bar\&. This status bar takes place at the bottom of the screen\&.
+.sp
+At any time, the built\-in help system can be invoked by pressing the \fI?\fR key\&. Once viewing the help screens, informations on a specific command can be accessed by pressing the keystroke corresponding to that command\&.
+.SH "CONFIGURATION"
+.sp
+The calcurse options can be changed from the configuration menu (shown when \fIC\fR is hit)\&. Five possible categories are to be chosen from : the color scheme, the layout (the location of the three panels on the screen), notification options, key bindings configuration menu, and more general options (such as automatic save before quitting)\&. All of these options are detailed in the configuration menu\&.
+.SH "FILES"
+.sp
+The following structure is created in your $HOME directory (or in the directory you specified with the \fB\-D\fR option), the first time calcurse is run:
+.sp
+.if n \{\
+.RS 4
+.\}
+.nf
+$HOME/\&.calcurse/
+          |___notes/
+          |___conf
+          |___keys
+          |___apts
+          |___todo
+.fi
+.if n \{\
+.RE
+.\}
+.sp
+The \fInotes\fR subdirectory contains descriptions of the notes which are attached to appointments, events or todos\&. One text file is created per note, whose name is the SHA1 message digest of the note itself\&.
+.sp
+The \fIconf\fR file contains the user configuration\&. The \fIkeys\fR file contains the user\-defined key bindings\&. The \fIapts\fR file contains all of the user\(cqs appointments and events, and the \fItodo\fR file contains the todo list\&.
+.sp
+\fINote:\fR if the logging of calcurse daemon activity was set in the notification configuration menu, the extra file \fIdaemon\&.log\fR will appear in calcurse data directory\&. This file contains logs about calcurse activity when running in background\&.
+.SH "ENVIRONMENT"
+.sp
+This section describes the environment variables that affect how calcurse operates\&.
+.PP
+\fBVISUAL\fR
+.RS 4
+Specifies the external editor to use for writing notes\&.
+.RE
+.PP
+\fBEDITOR\fR
+.RS 4
+If the
+\fIVISUAL\fR
+environment variable is not set, then
+\fIEDITOR\fR
+will be used as the default external editor\&. If none of those variables are set, then
+\fI/usr/bin/vi\fR
+is used instead\&.
+.RE
+.PP
+\fBPAGER\fR
+.RS 4
+Specifies the default viewer to be used for reading notes\&. If this variable is not set, then
+\fI/usr/bin/less\fR
+is used\&.
+.RE
+.SH "BUGS"
+.sp
+Incorrect highlighting of items appear when using calcurse black and white theme together with a \fB$TERM\fR variable set to \fIxterm\-color\fR\&. To fix this bug, and as advised by Thomas E\&. Dickey (xterm maintainer), \fIxterm\-xfree86\fR should be used instead of \fIxterm\-color\fR to set the \fB$TERM\fR variable:
+.sp
+.if n \{\
+.RS 4
+.\}
+.nf
+"The xterm\-color value for $TERM is a bad choice for
+ XFree86 xterm because it is commonly used for a
+ terminfo entry which happens to not support bce\&.
+ Use the xterm\-xfree86 entry which is distributed
+ with XFree86 xterm (or the similar one distributed
+ with ncurses)\&."
+.fi
+.if n \{\
+.RE
+.\}
+.sp
+If you find other bugs, please send a report to bugs@calcurse\&.org or to one of the authors, below\&.
+.SH "SEE ALSO"
+.sp
+vi(1), less(1), ncurses(3), mkstemp(3)
+.sp
+The ical specification (rfc2445) can be found at: http://tools\&.ietf\&.org/html/rfc2445
+.sp
+The pcal project page: http://pcal\&.sourceforge\&.net/
+.sp
+Calcurse home page: http://calcurse\&.org/
+.sp
+Calcurse complete manual, translated in many languages and maintained in html format, can be found in the doc/ directory of the source package, or at: http://calcurse\&.org/files/manual\&.html
+.SH "AUTHORS"
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBFrederic Culot\fR
+<frederic@culot\&.org>
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBLukas Fleischer\fR
+<lfleischer@calcurse\&.org>
+.RE
+.SH "COPYRIGHT"
+.sp
+Copyright (c) 2004\-2016 calcurse Development Team\&. This software is released under the BSD License\&.
