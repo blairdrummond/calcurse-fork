@@ -544,14 +544,37 @@ draw_weekly_view(struct scrollwin *sw, struct date *current_day,
 		memset(slices, 0, DAYSLICESNO * sizeof *slices);
 		if (day_chk_busy_slices(date, DAYSLICESNO, slices)) {
 			for (i = 0; i < DAYSLICESNO; i++) {
-				if (j != WEEKINDAYS - 1
-				    && i != DAYSLICESNO - 1) {
-					WINS_CALENDAR_LOCK;
-					mvwhline(sw->inner, OFFY + 2 + i,
-						 OFFX + 3 + 4 * j, ACS_S9,
-						 2);
-					WINS_CALENDAR_UNLOCK;
+
+
+				if (j != WEEKINDAYS - 1) {
+          WINS_CALENDAR_LOCK;
+          mvwhline(sw->inner, OFFY + 2 + i, OFFX + 3 + 4 * j,' ', 2);
+          WINS_CALENDAR_UNLOCK;
+        }
+
+        /*
+        // if (j != WEEKINDAYS - 1 && i != DAYSLICESNO - 1) {
+				if (j != WEEKINDAYS - 1) {
+          if (i == 0) {
+            WINS_CALENDAR_LOCK;
+					  mvwhline(sw->inner, OFFY + 2 + i, OFFX + 3 + 4 * j,ACS_URCORNER, 1);
+					  mvwhline(sw->inner, OFFY + 2 + i, OFFX + 4 + 4 * j,ACS_ULCORNER, 1);
+            WINS_CALENDAR_UNLOCK;
+          } else if (i == DAYSLICESNO - 1) {
+            WINS_CALENDAR_LOCK;
+					  mvwhline(sw->inner, OFFY + 2 + i, OFFX + 3 + 4 * j,ACS_LRCORNER, 1);
+					  mvwhline(sw->inner, OFFY + 2 + i, OFFX + 4 + 4 * j,ACS_LLCORNER, 1);
+            WINS_CALENDAR_UNLOCK;
+          } else {
+            WINS_CALENDAR_LOCK;
+					  mvwhline(sw->inner, OFFY + 2 + i, OFFX + 3 + 4 * j,ACS_RTEE, 1);
+					  mvwhline(sw->inner, OFFY + 2 + i, OFFX + 4 + 4 * j,ACS_LTEE, 1);
+            WINS_CALENDAR_UNLOCK;
+          }
 				}
+        */
+
+
 				if (slices[i]) {
 					int highlight;
 
@@ -559,20 +582,23 @@ draw_weekly_view(struct scrollwin *sw, struct date *current_day,
 					    (t.tm_mday ==
 					     slctd_day.dd) ? 1 : 0;
 					WINS_CALENDAR_LOCK;
-					if (highlight)
-						custom_apply_attr(sw->inner,
-								  attr);
+
+          if (highlight)
+						custom_apply_attr(sw->inner, attr);
 					wattron(sw->inner, A_REVERSE);
-					mvwaddstr(sw->inner, OFFY + 2 + i,
-						  OFFX + 1 + 4 * j, " ");
-					mvwaddstr(sw->inner, OFFY + 2 + i,
-						  OFFX + 2 + 4 * j, " ");
+					mvwaddstr(sw->inner, OFFY + 2 + i, OFFX + 1 + 4 * j, " ");
+					mvwaddstr(sw->inner, OFFY + 2 + i, OFFX + 2 + 4 * j, " ");
 					wattroff(sw->inner, A_REVERSE);
 					if (highlight)
-						custom_remove_attr(sw->inner,
-								   attr);
+						custom_remove_attr(sw->inner, attr);
+
 					WINS_CALENDAR_UNLOCK;
-				}
+				} else {
+          WINS_CALENDAR_LOCK;
+          mvwhline(sw->inner, OFFY + 2 + i, OFFX + 1 + 4 * j,ACS_BULLET, 2);
+					WINS_CALENDAR_UNLOCK;
+
+        }
 			}
 		}
 
@@ -583,10 +609,9 @@ draw_weekly_view(struct scrollwin *sw, struct date *current_day,
 	/* Draw marks to indicate midday on the sides of the calendar. */
 	WINS_CALENDAR_LOCK;
 	custom_apply_attr(sw->inner, ATTR_HIGHEST);
-	mvwhline(sw->inner, OFFY + 1 + DAYSLICESNO / 2, OFFX, ACS_S9, 1);
-	mvwhline(sw->inner, OFFY + 1 + DAYSLICESNO / 2,
-		 OFFX + WCALWIDTH - 1, ACS_S9, 1);
-	custom_remove_attr(sw->inner, ATTR_HIGHEST);
+	mvwhline(sw->inner, OFFY + 1 + DAYSLICESNO / 2, OFFX, ' ', 1);
+	mvwhline(sw->inner, OFFY + 1 + DAYSLICESNO / 2, OFFX + WCALWIDTH - 1,' ', 1);
+  custom_remove_attr(sw->inner, ATTR_HIGHEST);
 	WINS_CALENDAR_UNLOCK;
 
 #undef DAYSLICESNO

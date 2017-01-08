@@ -568,9 +568,12 @@ unsigned day_chk_busy_slices(struct date day, int slicesno, int *slices)
 	llist_item_t *i;
 	int slicelen;
 
-	slicelen = DAYINSEC / slicesno;
+	// slicelen = DAYINSEC / slicesno;
+	slicelen = (60 * 60 * 9) / slicesno; // 9 hours instead of 24
 
-#define  SLICENUM(tsec)  ((tsec) / slicelen % slicesno)
+  // 36000 = 8:30
+  #define  SLICENUM(tsec) ((tsec - 30600) / slicelen % slicesno)
+  // #define  SLICENUM(tsec)  ((tsec) / slicelen % slicesno)
 
 	LLIST_TS_LOCK(&recur_alist_p);
 	LLIST_TS_FIND_FOREACH(&recur_alist_p, (time_t *)&t,

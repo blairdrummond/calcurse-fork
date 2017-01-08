@@ -1,0 +1,1 @@
+Personal fork of [calcurse](http://calcurse.org/). Instead of the weekview presenting 4 hour blocks of 24 hours, it presents 6 blocks of 1.5 hours starting at 8:30am. This corresponds to class-times at my school. I also made some visual changes to weekview.
